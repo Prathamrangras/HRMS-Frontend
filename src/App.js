@@ -4,6 +4,7 @@ import Dashboard from "./pages/AllEmployee/Dashboard";
 import ProtectedRoute from "./components/ProtectedRoutes";
 import Employee from "./pages/AllEmployee/Employee";
 import EmployeeProfile from "./pages/SingleEmployee/EmployeeProfile";
+import Project from "./pages/AllProject/Project";
 function App() {
   return (
     <BrowserRouter>
@@ -20,6 +21,7 @@ function App() {
           <Route path="/dashboard/employee/:id" element={<EmployeeProfile />} />
         </Route>
         <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Project />} />
       </Routes>
     </BrowserRouter>
   );

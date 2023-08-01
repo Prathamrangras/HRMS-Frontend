@@ -11,7 +11,6 @@ export const useFetchTeam = () => {
 
     const resp = await customFetch.get(`/team/one/${id}`);
     if (!resp.data.error) {
-      console.log(resp.data);
       setTeam(resp.data.data);
       setLoading(false);
     } else {
