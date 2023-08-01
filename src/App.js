@@ -19,6 +19,7 @@ function App() {
         >
           <Route index element={<Employee />} />
           <Route path="/dashboard/employee/:id" element={<EmployeeProfile />} />
+          <Route path="/dashboard/project" element={<Project />}></Route>
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/" element={<Project />} />
