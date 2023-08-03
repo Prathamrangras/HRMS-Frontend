@@ -9,7 +9,7 @@ const Dashboard = () => {
       <div className="col-3 w-25">
         <Sidebar />
       </div>
-      <div>
+      <div style={{ width: "70%" }}>
         <Navbar />
         <div className="dashboard-page">
           <Outlet />

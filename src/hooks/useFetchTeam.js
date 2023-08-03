@@ -18,5 +18,6 @@ export const useFetchTeam = () => {
       setLoading(false);
     }
   };
+
   return { error, getTeam };
 };

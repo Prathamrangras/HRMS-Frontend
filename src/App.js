@@ -22,7 +22,6 @@ function App() {
           <Route path="/dashboard/project" element={<Project />}></Route>
         </Route>
         <Route path="/login" element={<Login />} />
-        <Route path="/" element={<Project />} />
       </Routes>
     </BrowserRouter>
   );

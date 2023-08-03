@@ -30,8 +30,6 @@ div {
   flex: 1 1;
   height: 100vh;
   order: 3;
-  overflow-y: auto;
-  scroll-behavior: smooth;
 }
 
 .p-xl-5 {
@@ -1004,12 +1002,12 @@ user agent stylesheet a:-webkit-any-link {
 
 .col-lg-12 {
   flex: 0 0 auto;
-  width: 100%;
+  width: 66%;
 }
 
 .col-md-12 {
   flex: 0 0 auto;
-  width: 100%;
+  width: 66%;
 }
 
 .col-xxl-4 {
@@ -1042,4 +1040,7 @@ user agent stylesheet a:-webkit-any-link {
   width: 50%;
 }
 
-
+textarea {
+  margin-top: 15px;
+  width: 100%;
+}
