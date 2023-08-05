@@ -1,30 +1,30 @@
 import React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FaPlus } from "react-icons/fa";
 import { usePopupContext } from "../../context/PopupContext";
-
+import "../../style/style.css"
 const EmployeeHead = () => {
   const { openPopup } = usePopupContext();
 
   return (
-    <div className="row clearfix">
-      <div className="col-md-12">
-        <div className="card border-0 mb-4 no-bg">
-          <div className="card-header py-3 px-0 d-sm-flex align-items-center  justify-content-between border-bottom">
-            <h3 className="fw-bold flex-fill mb-0 mt-sm-0">Employee</h3>
+    <div className="row align-items-center">
+      <div className="border-0 mb-4 ">
+        <div className="card-header no-bg bg-transparent d-flex align-items-center px-0 justify-content-between border-bottom flex-wrap">
+          <h3 className="fw-bold mb-0 py-3 pb-2">Employee</h3>
+          <div className="col-auto d-flex w-sm-100">
             <button
               onClick={() => openPopup()}
               type="button"
-              className="btn btn-dark me-1 mt-1 w-sm-100"
+              className="btn btn-dark btn-set-task w-sm-100 me-2"
             >
-              {/* <FontAwesomeIcon icon="fa-regular fa-circle-plus" /> */}
-              {/* <i className="incofont-plus-circle me-2 fs-6"></i>Add */}
+              <FaPlus />
               Add Employee
             </button>
             <div className="dropdown">
               <button
-                className="btn btn-primary dropdown-toggle mt-1  w-sm-10"
+                className="btn btn-primary dropdown-toggle"
                 type="button"
                 id="dropdownMenuButton2"
+                aria-aria-expanded="false"
               >
                 Status
               </button>
