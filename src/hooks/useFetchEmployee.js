@@ -39,8 +39,16 @@ export const useFetchEmpployee = () => {
       employee: { ...obj, managerId: [] },
       CreatorId: id,
     });
+
+    console.log(resp.data);
+
     if (!resp.data.error) {
-      setEmployee((prev) => [...prev, resp.data.data]);
+      setEmployee((prev) => {
+        console.log(prev);
+
+        return [...prev, resp.data];
+      });
+
       setLoading(false);
     } else {
       setError(true);

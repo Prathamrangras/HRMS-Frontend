@@ -1,10 +1,11 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import FormRow from "../FormComponents/FormRow";
 import FormRowSelect from "../FormComponents/FormRowSelect";
 import { usePopupContext } from "../../context/PopupContext";
 import { useEmployeeContext } from "../../context/EmployeeContext";
-import { useFetchEmpployee } from "../../hooks/useFetchEmployee";
+import { useFetchProject } from "../../hooks/useFetchProject";
 import { useAuthContext } from "../../context/AuthContext";
+import { priorityList } from "../../utils/data";
 
 const initialValue = {
   name: "",
@@ -19,9 +20,11 @@ const initialValue = {
 
 const Project = () => {
   const [values, setValues] = useState(initialValue);
-  const { closePopup } = usePopupContext();
+  const { closePopup, EditPopup } = usePopupContext();
   const { designation, department } = useEmployeeContext();
-  const { addEmployee } = useFetchEmpployee();
+  const { addProject } = useFetchProject();
+  const { isEdit } = usePopupContext();
+
   // const designationList = designation.map((e) => e.name);
   // const departmentList = department.map((e) => e.name);
   const { user } = useAuthContext();
@@ -30,29 +33,38 @@ const Project = () => {
     const name = e.target.name;
     const value = e.target.value;
     setValues({ ...values, [name]: value });
+    console.log(values);
   };
 
-  const addEmp = useCallback(async (obj, id) => {
+  const addProjectAsync = useCallback(async (obj) => {
     console.log(values);
-    await addEmployee(obj, id);
+    await addProject(obj);
+  }, []);
+
+  const EditProjectAsync = useCallback(async (obj) => {
+    console.log(values);
+    await addProject(obj);
   }, []);
 
   return (
     <div className="modal-dialog">
       <div className="modal-content">
         <div className="modal-header">
-          <div className="fw-bold modal-title h4">Create Project</div>
+          <div className="fw-bold modal-title h4">
+            {EditPopup ? "Edit Project" : "Create Popup"}
+          </div>
           <button
+            onClick={() => closePopup()}
             type="button"
             className="btn-close"
             aria-label="Close"
           ></button>
         </div>
         <form
-          className="modal-body"
+          className="modal-body px-5"
           onSubmit={(e) => {
             e.preventDefault();
-            addEmp(values, user._id);
+            !isEdit ? addProjectAsync(values) : EditProjectAsync();
           }}
         >
           <FormRow
@@ -67,9 +79,9 @@ const Project = () => {
             name={"Category"}
             value={values.Category}
             handleChange={handleChange}
-            list={designation}
+            list={department}
           />
-          <div className="d-flex flex-row justify-content-center gap-3">
+          <div className="d-flex flex-row justify-content-center gap-3 mt-3">
             <FormRow
               type={"date"}
               name={"StartDate"}
@@ -85,22 +97,22 @@ const Project = () => {
               labelText={"End Date"}
             />
           </div>
-          <div className="d-flex flex-row justify-content-center gap-3">
-            <FormRowSelect
-              labelText={"Designation"}
-              name={"designationID"}
-              value={values.designationID}
-              handleChange={handleChange}
-              list={designation}
-            />
-            <FormRowSelect
-              labelText={"Priority"}
-              name={"priority"}
-              value={values.departmentID}
-              handleChange={handleChange}
-              list={department}
-            />
-          </div>
+
+          {/* <FormRowSelect
+            labelText={"Designation"}
+            name={"designationID"}
+            value={values.designationID}
+            handleChange={handleChange}
+            list={designation}
+          /> */}
+          <FormRowSelect
+            labelText={"Priority"}
+            name={"Priority"}
+            value={values.departmentID}
+            handleChange={handleChange}
+            list={priorityList}
+          />
+
           <textarea
             onChange={handleChange}
             value={values.Description}

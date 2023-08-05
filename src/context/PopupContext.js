@@ -4,17 +4,26 @@ const PopupContext = createContext();
 
 const AppContext = ({ children }) => {
   const [isPopup, setIsPopup] = useState(false);
+  const [EditPopup, setEditPopup] = useState(null);
 
   const closePopup = () => {
+    setEditPopup(null);
     setIsPopup(false);
   };
 
-  const openPopup = () => {
-    setIsPopup(true);
+  const openPopup = (_id) => {
+    if (_id) {
+      setEditPopup(_id);
+      setIsPopup(true);
+    } else {
+      setIsPopup(true);
+    }
   };
 
   return (
-    <PopupContext.Provider value={{ isPopup, openPopup, closePopup }}>
+    <PopupContext.Provider
+      value={{ isPopup, openPopup, closePopup, EditPopup }}
+    >
       {children}
     </PopupContext.Provider>
   );

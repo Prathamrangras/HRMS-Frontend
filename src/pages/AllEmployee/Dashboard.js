@@ -10,11 +10,9 @@ const Dashboard = () => {
         <Sidebar />
       </div>
       <div style={{ width: "70%" }}>
-        <div>
-          <Navbar />
-          <div className="dashboard-page">
-            <Outlet />
-          </div>
+        <Navbar />
+        <div className="dashboard-page">
+          <Outlet />
         </div>
       </div>
     </div>
