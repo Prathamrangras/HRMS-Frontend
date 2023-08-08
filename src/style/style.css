@@ -742,8 +742,8 @@ user agent stylesheet a:-webkit-any-link {
 .btn.btn-dark {
   padding: 6px 12px;
   color: var(--white-color);
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
+  background-color: #484c7f;
+  border-color: #484c7f;
 }
 
 .btn.btn-primary {
@@ -995,12 +995,6 @@ user agent stylesheet a:-webkit-any-link {
   border-radius: 0.25rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-.btn.btn-dark {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
-  color: var(--white-color);
 }
 
 @media only screen and (max-width: 554px) {
@@ -2363,3 +2357,5 @@ body.rtl_mode
   margin-top: 0;
   margin-bottom: 0.125rem;
 }
+
+
