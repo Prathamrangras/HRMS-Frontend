@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+
 import {
   FaHome,
   FaUser,
@@ -49,7 +49,7 @@ const Sidebar = () => {
     <div id="mainSideMenu" className="sidebar px-4 py-4 py-md-5 me-0">
       <div className="d-flex flex-column h-100">
         <a href="#" className="mb-0 brand-icon text-white">
-          <span class="logo-icon">
+          <span className="logo-icon">
             <svg
               width="35"
               height="35"
