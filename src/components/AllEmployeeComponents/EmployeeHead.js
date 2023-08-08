@@ -1,7 +1,7 @@
 import React from "react";
 import { FaPlus } from "react-icons/fa";
 import { usePopupContext } from "../../context/PopupContext";
-import "../../style/style.css"
+import "../../style/style.css";
 const EmployeeHead = () => {
   const { openPopup } = usePopupContext();
 
@@ -14,10 +14,12 @@ const EmployeeHead = () => {
             <button
               onClick={() => openPopup()}
               type="button"
-              className="btn btn-dark btn-set-task w-sm-100 me-2"
+              className="btn btn-dark btn-set-task w-sm-100 me-2 d-flex align-items-center"
             >
-              <FaPlus />
-              Add Employee
+              <span>
+                <FaPlus />
+              </span>
+              <span>Add Employee</span>
             </button>
             <div className="dropdown">
               <button

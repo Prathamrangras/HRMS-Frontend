@@ -1,10 +1,10 @@
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 import FormRow from "../FormComponents/FormRow";
 import FormRowSelect from "../FormComponents/FormRowSelect";
 import { usePopupContext } from "../../context/PopupContext";
 import { useEmployeeContext } from "../../context/EmployeeContext";
 import { useFetchProject } from "../../hooks/useFetchProject";
-import { useAuthContext } from "../../context/AuthContext";
+// import { useAuthContext } from "../../context/AuthContext";
 import { priorityList } from "../../utils/data";
 
 const initialValue = {
@@ -21,13 +21,13 @@ const initialValue = {
 const Project = () => {
   const [values, setValues] = useState(initialValue);
   const { closePopup, EditPopup } = usePopupContext();
-  const { designation, department } = useEmployeeContext();
+  const { team, department } = useEmployeeContext();
   const { addProject } = useFetchProject();
   const { isEdit } = usePopupContext();
 
   // const designationList = designation.map((e) => e.name);
   // const departmentList = department.map((e) => e.name);
-  const { user } = useAuthContext();
+  // const { user } = useAuthContext();
 
   const handleChange = (e) => {
     const name = e.target.name;
@@ -108,12 +108,20 @@ const Project = () => {
           <FormRowSelect
             labelText={"Priority"}
             name={"Priority"}
-            value={values.departmentID}
+            value={values.Priority}
             handleChange={handleChange}
             list={priorityList}
           />
+          <FormRowSelect
+            labelText={"Team Assigned"}
+            name={"teamAssigned"}
+            value={values.teamAssigned}
+            handleChange={handleChange}
+            list={team}
+          />
 
           <textarea
+            className="mt-2"
             onChange={handleChange}
             value={values.Description}
             name="Description"
