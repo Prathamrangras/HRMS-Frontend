@@ -1,5 +1,6 @@
 import React from "react";
-
+import { LuEdit } from "react-icons/lu";
+import { RiDeleteBin6Line } from "react-icons/ri";
 export const HolidaysData = {
   title: "Holidays List",
   columns: [
@@ -38,10 +39,10 @@ export const HolidaysData = {
           aria-label="Basic outlined example"
         >
           <button type="button" className="btn btn-outline-secondary">
-            <i className="icofont-edit text-success"></i>
+            <LuEdit style={{ color: "green" }} />
           </button>
           <button type="button" className="btn btn-outline-secondary deleterow">
-            <i className="icofont-ui-delete text-danger"></i>
+            <RiDeleteBin6Line style={{ color: "red" }} />
           </button>
         </div>
       ),

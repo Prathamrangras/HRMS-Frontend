@@ -6,6 +6,7 @@ import Employee from "./pages/AllEmployee/Employee";
 import EmployeeProfile from "./pages/SingleEmployee/EmployeeProfile";
 import Project from "./pages/AllProject/Project";
 import TableData from "./components/TableComponents/DataTable";
+import Departments from "./pages/Departments/Departments";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/dashboard/employee/:id" element={<EmployeeProfile />} />
           <Route path="/dashboard/project" element={<Project />}></Route>
           <Route path="/dashboard/holidays" element={<TableData />} />
+          <Route path="/dashboard/departments" element={<Departments />} />
         </Route>
         <Route path="/login" element={<Login />} />
       </Routes>
