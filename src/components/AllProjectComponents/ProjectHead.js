@@ -14,7 +14,7 @@ const ProjectHead = () => {
             <button
               onClick={() => openPopup(null)}
               type="button"
-              className="btn btn-dark w-sm-100"
+              className="btn w-sm-100"
             >
               <AiOutlinePlusCircle
                 style={{ fontSize: "1.3em", marginRight: "0.5em" }}

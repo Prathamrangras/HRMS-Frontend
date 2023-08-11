@@ -742,8 +742,8 @@ user agent stylesheet a:-webkit-any-link {
 .btn.btn-dark {
   padding: 6px 12px;
   color: var(--white-color);
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
+  background-color: #484c7f;
+  border-color: #484c7f;
 }
 
 .btn.btn-primary {
@@ -752,10 +752,10 @@ user agent stylesheet a:-webkit-any-link {
   color: var(--white-color);
 }
 
-.btn.btn-primary.active {
+/* .btn.btn-primary.active {
   background-color: var(--secondary-color);
   border-color: var(--secondary-color);
-}
+} */
 
 .light-info-bg {
   background-color: #eee5ff !important;
@@ -956,7 +956,7 @@ user agent stylesheet a:-webkit-any-link {
   position: relative;
   display: flex;
   flex-direction: column;
-  min-width: 0;
+  width: 150%;
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
@@ -997,12 +997,6 @@ user agent stylesheet a:-webkit-any-link {
     border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-.btn.btn-dark {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
-  color: var(--white-color);
-}
-
 @media only screen and (max-width: 554px) {
   .w-sm-100 {
     width: 100%;
@@ -1032,12 +1026,12 @@ user agent stylesheet a:-webkit-any-link {
 
 .col-lg-12 {
   flex: 0 0 auto;
-  width: 66%;
+  width: 50%;
 }
 
 .col-md-12 {
   flex: 0 0 auto;
-  width: 66%;
+  width: 50%;
 }
 
 .col-xxl-4 {
@@ -2394,3 +2388,5 @@ body.rtl_mode
   position: relative;
   vertical-align: middle;
 }
+
+

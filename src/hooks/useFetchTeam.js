@@ -19,5 +19,18 @@ export const useFetchTeam = () => {
     }
   };
 
-  return { error, getTeam };
+  const getAllTeams = async () => {
+    setLoading(true);
+
+    const resp = await customFetch.get(`/team`);
+    if (!resp.data.error) {
+      setTeam(resp.data.data);
+      setLoading(false);
+    } else {
+      setError(true);
+      setLoading(false);
+    }
+  };
+
+  return { error, getTeam, getAllTeams };
 };

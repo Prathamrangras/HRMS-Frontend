@@ -10,7 +10,7 @@ const Task = () => {
       {/* <div className="body d-flex pu-lg-3 py-md-2">
             <div className="container-xxl"> */}
       <div className="col-xl-4 col-lg-12 col-md-12">
-        <div className="card mb-3">
+        <div className="card mb-3" style={{ width: "280px" }}>
           <div class="card-header py-3">
             <h6 className="mb-0 fw-bold">Current Task</h6>
           </div>
@@ -39,8 +39,8 @@ const Task = () => {
                       </div>
                       <p class="py-2 mb-0">Task description here</p>
                       <div class="tikit-info row g-3 align-items-center">
-                        <div class="col-sm"></div>
-                        <div class="col-sm text-end">
+                        {/* <div class="col-sm"></div> */}
+                        <div class="col-sm text-center">
                           <div class="small text-truncate light-danger-bg py-1 px-2 rounded-1 d-inline-block fw-bold small">
                             Social Geek Made
                           </div>
