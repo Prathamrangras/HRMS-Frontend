@@ -2363,3 +2363,34 @@ body.rtl_mode
   margin-top: 0;
   margin-bottom: 0.125rem;
 }
+.Holidays
+.Holidays-block {
+  align-items: center;
+  color: var(--text-color);
+  display: flex;
+  font-size: 30px;
+  height: 60px;
+  justify-content: center;
+  text-align: center;
+  top: -30px;
+  width: 60px;
+  border-radius: 0.25rem;
+}
+
+.Holidays-block,
+.Holidays_name {
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+}
+
+.Holidays_name {
+  top: 33px;
+}
+
+.btn-group,
+.btn-group-vertical {
+  display: inline-flex;
+  position: relative;
+  vertical-align: middle;
+}

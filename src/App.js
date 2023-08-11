@@ -5,7 +5,7 @@ import ProtectedRoute from "./components/ProtectedRoutes";
 import Employee from "./pages/AllEmployee/Employee";
 import EmployeeProfile from "./pages/SingleEmployee/EmployeeProfile";
 import Project from "./pages/AllProject/Project";
-import TableData from "./components/TableComponents/DataTable";
+import Holiday from './components/TableComponents/DataTable';
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
           <Route index element={<Employee />} />
           <Route path="/dashboard/employee/:id" element={<EmployeeProfile />} />
           <Route path="/dashboard/project" element={<Project />}></Route>
-          <Route path="/dashboard/holidays" element={<TableData />} />
+          <Route path="/dashboard/holidays" element={<Holiday />} />
         </Route>
         <Route path="/login" element={<Login />} />
       </Routes>
