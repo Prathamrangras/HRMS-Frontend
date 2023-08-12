@@ -4,7 +4,7 @@ import { RiDeleteBin6Line } from "react-icons/ri";
 export const Departmentcolumns = [
   {
     name: "#",
-    selector: (department) => department.Type,
+    selector: (index) => index + 1,
     sortable: true,
   },
   {

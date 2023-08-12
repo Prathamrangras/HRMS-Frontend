@@ -3,6 +3,7 @@ import image from "../../assets/photo-1502989642968-94fbdc9eace4.jpeg";
 import { HiOutlineMail } from "react-icons/hi";
 import { FaBirthdayCake } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import "../../style/employeeCard.css";
 
 const EmployeeCard = ({ name, designationID, _id, email, dateOfBirth }) => {
   return (
