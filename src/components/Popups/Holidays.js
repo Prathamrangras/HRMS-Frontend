@@ -4,9 +4,11 @@ import { usePopupContext } from "../../context/PopupContext";
 import { useFetchHoliday } from "../../hooks/useFetchHolidays";
 
 const initialValue = {
-  name: "",
-  date: "",
-  day: "",
+  ticketid: "02",
+  holidayname: "",
+  holidaydate: "",
+  Holidayday: "",
+  txtClass: "text-danger"
 };
 
 const dayList = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
@@ -24,6 +26,9 @@ const Holiday = () => {
   };
 
   const addHolidayAsync = useCallback(async (obj) => {
+    // obj['ticketid'] = "01"
+    // obj['txtClass'] = "txt-danger"
+    console.log(obj)
     await addHoliday(obj);
     closePopup(); // Close the popup after adding holiday
   }, [addHoliday, closePopup]);
@@ -56,15 +61,15 @@ const Holiday = () => {
         >
           <FormRow
             type="text"
-            name="name"
-            value={values.name}
+            name="holidayname"
+            value={values.holidayname}
             handleChange={handleChange}
             labelText="Holiday Name"
           />
           <FormRow
             type="date"
-            name="date"
-            value={values.date}
+            name="holidaydate"
+            value={values.holidaydate}
             handleChange={handleChange}
             labelText="Date"
           />
@@ -74,9 +79,9 @@ const Holiday = () => {
             </label>
             <select
               className="form-select"
-              id="day"
-              name="day"
-              value={values.day}
+              id="Holidayday"
+              name="Holidayday"
+              value={values.Holidayday}
               onChange={handleChange}
             >
               <option value="" disabled>

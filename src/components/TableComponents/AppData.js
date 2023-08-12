@@ -1,7 +1,11 @@
 import React from "react";
 import { LuEdit } from "react-icons/lu";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { usePopupContext } from "../../context/PopupContext";
+
+
 export const HolidaysData = {
+  
   
   title: "Holidays List",
   columns: [

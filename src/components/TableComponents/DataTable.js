@@ -9,20 +9,37 @@ import { usePopupContext } from "../../context/PopupContext";
 import HolidayHead from "../../components/AllEmployeeComponents/HolidaysHead";
 import HolidayPopup from "../../components/Popups/Holidays";
 import HolidaysData from "./AppData";
+import { LuEdit } from "react-icons/lu";
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 function Holiday() {
-  const { loading, holidays } = useHolidaysContext();
+  const { holidays, loading } = useHolidaysContext();
   const { getHoliday, error } = useFetchHoliday();
   const { isPopup, openPopup } = usePopupContext();
+  
 
   const getHolidayAsync = useCallback(async () => {
     await getHoliday();
+    console.log(holidays)
   }, []);
 
+  // useEffect(() => {
+  //   getHolidayAsync();
+  //   console.log(holidays);
+  // }, []);
+  // const fetchHolidays = (async () => {
+  //   await fetchHolidays();
+  // }, []);
   useEffect(() => {
     getHolidayAsync();
-    console.log(holidays);
+    console.log(Holiday);
   }, []);
+  
+
+  // useEffect(() => {
+  //   getHolidayAsync();
+  //   console.log(holidays);
+  // }, []);
   const openEditHolidayPopup = (holiday) => {
     openPopup(holiday);
     console.log(isPopup)
@@ -59,22 +76,43 @@ function Holiday() {
       sortable: true,
     },
     {
-      name: "Actions",
-      selector: () => {
-        ( <div>
-          <button>Edit</button>
-          <button>Delete</button>
-        </div>)
-      },
+      name: "ACTION",
+      selector: () => {},
       sortable: true,
       cell: (row) => (
-        // <button onClick={(row) => openEditHolidayPopup(row)}>Edit</button>
-        <div>
-          <button onClick={() => openEditHolidayPopup(row.ticketid)}>Edit</button>
-          <button onClick={() => openDeleteHolidayPopup(row.ticketid)}>Delete</button>
+        <div
+          className="btn-group"
+          role="group"
+          aria-label="Basic outlined example"
+        >
+          <button type="button" className="btn btn-outline-secondary" 
+          onClick={(row) => openEditHolidayPopup(row)}>
+            <LuEdit style={{ color: "green" }} />
+          </button>
+          <button type="button" className="btn btn-outline-secondary deleterow"
+          onClick={(row) => openDeleteHolidayPopup(row)}>
+            <RiDeleteBin6Line style={{ color: "red" }} />
+          </button>
         </div>
       ),
     },
+    // {
+    //   name: "Actions",
+    //   selector: () => {
+    //     ( <div>
+    //       <button>Edit</button>
+    //       <button>Delete</button>
+    //     </div>)
+    //   },
+    //   sortable: true,
+    //   cell: (row) => (
+    //     // <button onClick={(row) => openEditHolidayPopup(row)}>Edit</button>
+    //     <div>
+    //       <button onClick={() => openEditHolidayPopup(row.ticketid)}>Edit</button>
+    //       <button onClick={() => openDeleteHolidayPopup(row.ticketid)}>Delete</button>
+    //     </div>
+    //   ),
+    // },
   
   ];
   // const HolidaysData = {
@@ -109,12 +147,12 @@ function Holiday() {
 
             {/* Table Data */}
             <div className="card-mb">
-              <DataTable
-                columns={HolidaysData.columns}
-                data={HolidaysData.rows}
+              { <DataTable
+                columns={columns}
+                data={holidays}
                 className="table myDataTable table-hover align-middle mb-0 d-data nowrap dataTable no-footer dtr-inline"
                 highlightOnHover={true}
-              ></DataTable>
+              ></DataTable> }
             </div>
           </div>
         </div>
@@ -122,6 +160,8 @@ function Holiday() {
     </>
   );
 }
-
 export default Holiday;
+
+
+
 
