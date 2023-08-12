@@ -12,6 +12,7 @@ const AppContext = ({ children }) => {
   };
 
   const openPopup = (_id) => {
+    console.log(_id);
     if (_id) {
       setEditPopup(_id);
       setIsPopup(true);

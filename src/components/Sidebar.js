@@ -43,7 +43,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div id="mainSideMenu" className="sidebar px-4 py-4 py-md-5 me-0">
+    <div id="mainSideMenu" className="sidebar px-4 py-3 me-0">
       <div className="d-flex flex-column h-100">
         <Link to="#" className="mb-0 brand-icon text-white">
           <span class="logo-icon">
@@ -116,7 +116,7 @@ const Sidebar = () => {
                 </Link>
               </li>
               <li>
-                <Link className="ms-link" to="#">
+                <Link className="ms-link" to="/dashboard/task">
                   <span>Tasks</span>
                 </Link>
               </li>
@@ -425,7 +425,7 @@ const Sidebar = () => {
           </li>
         </ul>
         {/* <!-- Menu: menu collepce btn --> */}
-        <button
+        {/* <button
           type="button"
           className="btn btn-link sidebar-mini-btn text-light"
           onClick={() => {
@@ -435,7 +435,7 @@ const Sidebar = () => {
           <span className="ms-2">
             <FaCaretSquareLeft class="icofont-bubble-right" />
           </span>
-        </button>
+        </button> */}
       </div>
     </div>
   );

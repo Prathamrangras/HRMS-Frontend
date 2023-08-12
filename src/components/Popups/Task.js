@@ -18,7 +18,7 @@ const initialValue = {
   Description: "",
 };
 
-const Project = () => {
+const Task = () => {
   const [values, setValues] = useState(initialValue);
   const { closePopup, EditPopup } = usePopupContext();
   const { team, department } = useEmployeeContext();
@@ -51,7 +51,7 @@ const Project = () => {
       <div className="modal-content">
         <div className="modal-header">
           <div className="fw-bold modal-title h4">
-            {EditPopup ? "Edit Project" : "Create Project"}
+            {EditPopup ? "Edit Project" : "Create Popup"}
           </div>
           <button
             onClick={() => closePopup()}
@@ -64,7 +64,7 @@ const Project = () => {
           className="modal-body px-5"
           onSubmit={(e) => {
             e.preventDefault();
-            !isEdit ? addProjectAsync(values) : EditProjectAsync(values);
+            !isEdit ? addProjectAsync(values) : EditProjectAsync();
           }}
         >
           <FormRow
@@ -74,13 +74,13 @@ const Project = () => {
             handleChange={handleChange}
             labelText={"Project Name"}
           />
-          <FormRowSelect
+          {/* <FormRowSelect
             labelText={"Category"}
             name={"Category"}
             value={values.Category}
             handleChange={handleChange}
             list={department}
-          />
+          /> */}
           <div className="d-flex flex-row justify-content-center gap-3 mt-3">
             <FormRow
               type={"date"}
@@ -112,13 +112,13 @@ const Project = () => {
             handleChange={handleChange}
             list={priorityList}
           />
-          <FormRowSelect
+          {/* <FormRowSelect
             labelText={"Team Assigned"}
             name={"teamAssigned"}
             value={values.teamAssigned}
             handleChange={handleChange}
             list={team}
-          />
+          /> */}
 
           <textarea
             className="mt-2"
@@ -141,4 +141,4 @@ const Project = () => {
   );
 };
 
-export default Project;
+export default Task;

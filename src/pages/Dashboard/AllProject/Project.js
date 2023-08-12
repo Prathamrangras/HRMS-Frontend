@@ -1,13 +1,13 @@
-import "../../style/style.css";
+import "../../../style/style.css";
 import React, { useCallback, useEffect } from "react";
-import { useFetchProject } from "../../hooks/useFetchProject";
-import { useProjectContext } from "../../context/ProjectContext";
-import ProjectHead from "../../components/AllProjectComponents/ProjectHead";
-import ProjectCard from "../../components/AllProjectComponents/ProjectCard";
-import { usePopupContext } from "../../context/PopupContext";
-import ProjectPopup from "../../components/Popups/Project";
-import { useFetchDepartment } from "../../hooks/useFetchDepartment";
-import { useFetchTeam } from "../../hooks/useFetchTeam";
+import { useFetchProject } from "../../../hooks/useFetchProject";
+import { useProjectContext } from "../../../context/ProjectContext";
+import ProjectHead from "../../../components/AllProjectComponents/ProjectHead";
+import ProjectCard from "../../../components/AllProjectComponents/ProjectCard";
+import { usePopupContext } from "../../../context/PopupContext";
+import ProjectPopup from "../../../components/Popups/Project";
+import { useFetchDepartment } from "../../../hooks/useFetchDepartment";
+import { useFetchTeam } from "../../../hooks/useFetchTeam";
 
 const Project = () => {
   const { loading, projects } = useProjectContext();
