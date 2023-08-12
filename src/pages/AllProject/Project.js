@@ -7,10 +7,12 @@ import ProjectCard from "../../components/AllProjectComponents/ProjectCard";
 import { usePopupContext } from "../../context/PopupContext";
 import ProjectPopup from "../../components/Popups/Project";
 import { useFetchDepartment } from "../../hooks/useFetchDepartment";
+import { useFetchTeam } from "../../hooks/useFetchTeam";
 
 const Project = () => {
   const { loading, projects } = useProjectContext();
   const { getProject, error } = useFetchProject();
+  const { getAllTeams } = useFetchTeam();
   const { isPopup } = usePopupContext();
   const { getDepartment } = useFetchDepartment();
 
@@ -22,10 +24,14 @@ const Project = () => {
     await getDepartment();
   }, []);
 
+  const getTeams = useCallback(async () => {
+    await getAllTeams();
+  }, []);
+
   useEffect(() => {
     getProjectsAsync();
     getDept();
-    console.log(projects);
+    getTeams();
   }, []);
 
   if (loading) {
@@ -56,7 +62,7 @@ const Project = () => {
             )}
 
             <ProjectHead />
-            <div className="row align-items-center">
+            <div className="d-flex flex-wrap">
               {/* main body start */}
               {projects.map((e) => (
                 <ProjectCard {...e} />

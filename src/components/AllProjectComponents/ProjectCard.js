@@ -7,6 +7,7 @@ import { BsFillChatLeftDotsFill } from "react-icons/bs";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { useFetchProject } from "../../hooks/useFetchProject";
+import { useProjectContext } from "../../context/ProjectContext";
 import { usePopupContext } from "../../context/PopupContext";
 
 function daysLeftBetweenDates(date1, date2) {
@@ -30,9 +31,11 @@ const ProjectCard = ({
   Category,
   StartDate,
   EndDate,
-  ProjectMembers,
+  teamAssigned,
 }) => {
   const { openPopup } = usePopupContext();
+
+  const { loading } = useProjectContext();
 
   const { deleteProject } = useFetchProject();
 
@@ -57,7 +60,7 @@ const ProjectCard = ({
                         {name}
                       </span>
                       <h6 className="mb-0 fw-bold fs-6 mb-2">
-                        {Category.name}
+                        {Category?.name}
                       </h6>
                     </div>
                     <div className="btn-group">
@@ -79,7 +82,7 @@ const ProjectCard = ({
                   </div>
                 </div>
                 <div className="d-flex align-items-center"></div>
-                <div className="row g-2 pt-4">
+                <div className="row g-2 pt-4 px-2">
                   <div className="col-6">
                     <div className="d-flex align-items-center">
                       <FaPaperclip />
@@ -96,11 +99,11 @@ const ProjectCard = ({
                     </div>
                   </div>
                 </div>
-                <div className="row g-2 pt-4">
+                <div className="row g-2 pt-4 px-2">
                   <div className="col-6">
                     <div className="d-flex align-items-center">
                       <BiSolidGroup />
-                      <span class="ms-2">{ProjectMembers?.length}</span>
+                      <span class="ms-2">{teamAssigned?.members?.length}</span>
                     </div>
                   </div>
                   <div className="col-6">
@@ -111,7 +114,7 @@ const ProjectCard = ({
                   </div>
                 </div>
                 <div className="dividers-block"></div>
-                <div className="d-flex align-items-center justify-content-between mb-2">
+                <div className="d-flex align-items-center justify-content-between mb-2 px-2">
                   <h4 className="small fw-bold mb-0">Progess</h4>
                   <span className="small light-danger-bg p-1 rounded">
                     <AiOutlineClockCircle

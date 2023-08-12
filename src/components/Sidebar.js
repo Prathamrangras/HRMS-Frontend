@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { Link } from "react-router-dom";
 import {
   FaHome,
   FaUser,
@@ -7,20 +7,17 @@ import {
   FaCalculator,
   FaCaretSquareLeft,
 } from "react-icons/fa";
-import {
-  BsBriefcaseFill,
-  BsCodeSlash,
-  BsTicketFill,
-  BsFillArrowDownCircleFill,
-} from "react-icons/bs";
+import { BsBriefcaseFill, BsCodeSlash, BsTicketFill } from "react-icons/bs";
 import { IoMdColorPalette } from "react-icons/io";
 import { PiAppWindow } from "react-icons/pi";
 import { GoTriangleDown } from "react-icons/go";
+import { useAuthContext } from "../context/AuthContext";
 
 const Sidebar = () => {
   const [isSidebarMini, setIsSidebarMini] = useState(false);
   const [darkLightMode, setDarkLightMode] = useState("light");
   const [updateRtl, setUpdateRtl] = useState(false);
+  const { user } = useAuthContext();
 
   useEffect(() => {
     window.document.children[0].setAttribute("data-theme", "light");
@@ -48,8 +45,8 @@ const Sidebar = () => {
   return (
     <div id="mainSideMenu" className="sidebar px-4 py-4 py-md-5 me-0">
       <div className="d-flex flex-column h-100">
-        <a href="#" className="mb-0 brand-icon text-white">
-          <span className="logo-icon">
+        <Link to="#" className="mb-0 brand-icon text-white">
+          <span class="logo-icon">
             <svg
               width="35"
               height="35"
@@ -66,15 +63,15 @@ const Sidebar = () => {
             </svg>
           </span>
           <span className="logo-text">My-Task</span>
-        </a>
+        </Link>
         {/* <!-- Menu: main ul --> */}
         <ul className="menu-list flex-grow-1 mt-3 ">
           <li className="collapsed ">
-            <a
+            <Link
               className="m-link"
               data-bs-toggle="collapse"
               data-bs-target="#dashboard-Components"
-              href="#"
+              to="#"
             >
               <FaHome className="icofont-home fs-5 " />
 
@@ -82,27 +79,27 @@ const Sidebar = () => {
               <span className="arrow ms-auto text-end fs-5 text-white">
                 <GoTriangleDown />
               </span>
-            </a>
+            </Link>
             {/* <!-- Menu: Sub menu ul --> */}
             <ul className="sub-menu collapse" id="dashboard-Components">
               <li>
-                <a className="ms-link" href="#">
+                <Link className="ms-link" to="#">
                   <span>Hr Dashboard</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ms-link" href="#">
+                <Link className="ms-link" to="#">
                   <span>Project Dashboard</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </li>
           <li className="collapsed">
-            <a
+            <Link
               className="m-link"
               data-bs-toggle="collapse"
               data-bs-target="#project-Components"
-              href="#"
+              to="#"
             >
               <BsBriefcaseFill className="icofont-briefcase" />
 
@@ -110,282 +107,285 @@ const Sidebar = () => {
               <span className="arrow ms-auto text-end fs-5">
                 <GoTriangleDown />
               </span>
-            </a>
+            </Link>
             {/* <!-- Menu: Sub menu ul --> */}
             <ul className="sub-menu collapse" id="project-Components">
               <li>
-                <a className="ms-link" href="#">
+                <Link className="ms-link" to="/dashboard/project">
                   <span>Projects</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ms-link" href="#">
+                <Link className="ms-link" to="#">
                   <span>Tasks</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ms-link" href="#">
+                <Link className="ms-link" to="#">
                   <span>Timesheet</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ms-link" href="#">
+                <Link className="ms-link" to="#">
                   <span>Leaders</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </li>
 
           <li className="collapsed">
-            <a
+            <Link
               className="m-link"
               data-bs-toggle="collapse"
               data-bs-target="#tikit-Components"
-              href="#"
+              to="#"
             >
               <BsTicketFill className="icofont-ticket" />
               <span>Tickets</span>
               <span className="arrow ms-auto text-end fs-5">
                 <GoTriangleDown />
               </span>
-            </a>
+            </Link>
             {/* <!-- Menu: Sub menu ul --> */}
             <ul className="sub-menu collapse" id="tikit-Components">
               <li>
-                <a className="ms-link" href="tickets.html">
+                <Link className="ms-link" to="tickets.html">
                   <span>Tickets View</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ms-link" href="#">
+                <Link className="ms-link" to="#">
                   <span>Ticket Detail</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </li>
           <li className="collapsed">
-            <a
+            <Link
               className="m-link"
               data-bs-toggle="collapse"
               data-bs-target="#client-Components"
-              href="#"
+              to="#"
             >
               <FaUser className="icofont-user-male" />
               <span>Our Clients</span>
               <span className="arrow ms-auto text-end fs-5">
                 <GoTriangleDown />
               </span>
-            </a>
+            </Link>
             {/* <!-- Menu: Sub menu ul --> */}
             <ul className="sub-menu collapse" id="client-Components">
               <li>
-                <a className="ms-link" href="#">
+                <Link className="ms-link" to="#">
                   <span>Clients</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ms-link" href="#">
+                <Link className="ms-link" to="#">
                   <span>Client Profile</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </li>
           <li className="collapsed">
-            <a
+            <Link
               className="m-link"
               data-bs-toggle="collapse"
               data-bs-target="#emp-Components"
-              href="#"
+              to="#"
             >
               <FaUsers className="icofont-users-alt-5" />
               <span>Employees</span>
               <span className="arrow ms-auto text-end fs-5">
                 <GoTriangleDown />
               </span>
-            </a>
+            </Link>
             {/* <!-- Menu: Sub menu ul --> */}
             <ul className="sub-menu collapse" id="emp-Components">
               <li>
-                <a className="ms-link" href="#">
+                <Link className="ms-link" to="/dashboard">
                   <span>Members</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ms-link" href="#">
+                <Link
+                  className="ms-link"
+                  to={`/dashboard/employee/${user._id}`}
+                >
                   <span>Members Profile</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ms-link" href="#">
+                <Link className="ms-link" to="#">
                   <span>Holidays</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ms-link" href="#">
+                <Link className="ms-link" to="#">
                   <span>Attendance Employees</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ms-link" href="#">
+                <Link className="ms-link" to="#">
                   <span>Attendance</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ms-link" href="#">
+                <Link className="ms-link" to="#">
                   <span>Leave Request</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ms-link" href="#">
+                <Link className="ms-link" to="#">
                   <span>Department</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </li>
 
           <li className="collapsed">
-            <a
+            <Link
               className="m-link"
               data-bs-toggle="collapse"
               data-bs-target="#menu-Componentsone"
-              href="#"
+              to="#"
             >
               <FaCalculator className="icofont-ui-calculator" />
               <span>Accounts</span>
               <span className="arrow ms-auto text-end fs-5">
                 <GoTriangleDown />
               </span>
-            </a>
+            </Link>
             {/* <!-- Menu: Sub menu ul --> */}
             <ul className="sub-menu collapse" id="menu-Componentsone">
               <li>
-                <a className="ms-link" href="invoices.html">
+                <Link className="ms-link" to="invoices.html">
                   <span>Invoices</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ms-link" href="payments.html">
+                <Link className="ms-link" to="payments.html">
                   <span>Payments</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ms-link" href="expenses.html">
+                <Link className="ms-link" to="expenses.html">
                   <span>Expenses</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </li>
           <li className="collapsed">
-            <a
+            <Link
               className="m-link"
               data-bs-toggle="collapse"
               data-bs-target="#payroll-Components"
-              href="#"
+              to="#"
             >
               <FaUsers className="icofont-users-alt-5" />
               <span>Payroll</span>
               <span className="arrow ms-auto text-end fs-5">
                 <GoTriangleDown />
               </span>
-            </a>
+            </Link>
             {/* <!-- Menu: Sub menu ul --> */}
             <ul className="sub-menu collapse" id="payroll-Components">
               <li>
-                <a className="ms-link" href="salaryslip.html">
+                <Link className="ms-link" to="salaryslip.html">
                   <span>Employee Salary</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </li>
           <li className="collapsed">
-            <a
+            <Link
               className="m-link"
               data-bs-toggle="collapse"
               data-bs-target="#app-Components"
-              href="#"
+              to="#"
             >
               <PiAppWindow className="icofont-contrast" />
               <span>App</span>
               <span className="arrow ms-auto text-end fs-5">
                 <GoTriangleDown />
               </span>
-            </a>
+            </Link>
             {/* <!-- Menu: Sub menu ul --> */}
             <ul className="sub-menu collapse" id="app-Components">
               <li>
-                <a className="ms-link" href="calendar.html">
+                <Link className="ms-link" to="calendar.html">
                   <span>Calander</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ms-link" href="chat.html">
+                <Link className="ms-link" to="chat.html">
                   <span>Chat App</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </li>
           <li className="collapsed">
-            <a
+            <Link
               className="m-link"
               data-bs-toggle="collapse"
               data-bs-target="#extra-Components"
-              href="#"
+              to="#"
             >
               <BsCodeSlash className="icofont-code-alt" />
               <span>Other Pages</span>
               <span className="arrow ms-auto text-end fs-5">
                 <GoTriangleDown />
               </span>
-            </a>
+            </Link>
             {/* <!-- Menu: Sub menu ul --> */}
             <ul className="sub-menu collapse" id="extra-Components">
               <li>
-                <a className="ms-link" href="charts.html">
+                <Link className="ms-link" to="charts.html">
                   <span>Apex Charts</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ms-link" href="forms.html">
+                <Link className="ms-link" to="forms.html">
                   <span>Forms Example</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ms-link" href="table.html">
+                <Link className="ms-link" to="table.html">
                   <span>Table Example</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ms-link" href="review.html">
+                <Link className="ms-link" to="review.html">
                   <span>Reviews Page</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ms-link" href="icon.html">
+                <Link className="ms-link" to="icon.html">
                   <span>Icons</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ms-link" href="contact.html">
+                <Link className="ms-link" to="contact.html">
                   <span>Contact</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ms-link" href="widgets.html">
+                <Link className="ms-link" to="widgets.html">
                   <span>Widgets</span>
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="ms-link" href="todo-list.html">
+                <Link className="ms-link" to="todo-list.html">
                   <span>Todo-List</span>
-                </a>
+                </Link>
               </li>
             </ul>
           </li>
           <li>
-            <a className="m-link" href="ui-elements/ui-alerts.html">
+            <Link className="m-link" to="ui-elements/ui-alerts.html">
               <IoMdColorPalette className="icofont-paint" />
               <span>UI Components</span>
-            </a>
+            </Link>
           </li>
         </ul>
 

@@ -752,10 +752,10 @@ user agent stylesheet a:-webkit-any-link {
   color: white;
 }
 
-.btn.btn-primary.active {
+/* .btn.btn-primary.active {
   background-color: var(--secondary-color);
   border-color: var(--secondary-color);
-}
+} */
 
 .light-info-bg {
   background-color: #eee5ff !important;
@@ -956,7 +956,7 @@ user agent stylesheet a:-webkit-any-link {
   position: relative;
   display: flex;
   flex-direction: column;
-  min-width: 0;
+  width: 150%;
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
@@ -1026,12 +1026,12 @@ user agent stylesheet a:-webkit-any-link {
 
 .col-lg-12 {
   flex: 0 0 auto;
-  width: 66%;
+  width: 50%;
 }
 
 .col-md-12 {
   flex: 0 0 auto;
-  width: 66%;
+  width: 50%;
 }
 
 .col-xxl-4 {

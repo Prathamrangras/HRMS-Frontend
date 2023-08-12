@@ -9,7 +9,7 @@ const Experience = () => {
             <div className="container-xxl">
               <div className="row g-3">
                 <div className="col-xl-4 col-lg-12 col-md-12"> */}
-      <div className="card">
+      <div className="card" style={{ width: "280px" }}>
         <div className="card-header py-3">
           <h6 className="mb-0 fw-bold">Experience</h6>
         </div>
