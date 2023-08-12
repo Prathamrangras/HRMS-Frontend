@@ -1,7 +1,7 @@
 import React from "react";
-import { FaPlus } from "react-icons/fa";
+import { AiOutlinePlusCircle } from "react-icons/ai";
 import { usePopupContext } from "../../context/PopupContext";
-import "../../style/style.css"
+import "../../style/style.css";
 const EmployeeHead = () => {
   const { openPopup } = usePopupContext();
 
@@ -16,7 +16,9 @@ const EmployeeHead = () => {
               type="button"
               className="btn btn-dark btn-set-task w-sm-100 me-2"
             >
-              <FaPlus />
+              <AiOutlinePlusCircle
+                style={{ fontSize: "1.3em", marginRight: "0.5em" }}
+              />
               Add Employee
             </button>
             <div className="dropdown">

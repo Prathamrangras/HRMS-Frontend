@@ -747,9 +747,9 @@ user agent stylesheet a:-webkit-any-link {
 }
 
 .btn.btn-primary {
-  background-color: var(--primary-color);
-  border-color: var(--primary-color);
-  color: var(--white-color);
+  background-color: #484c7f;
+  border-color: #484c7f;
+  color: white;
 }
 
 .btn.btn-primary.active {
@@ -2357,5 +2357,3 @@ body.rtl_mode
   margin-top: 0;
   margin-bottom: 0.125rem;
 }
-
-
