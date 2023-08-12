@@ -1,5 +1,5 @@
 import React from "react";
-import { FaPlus } from "react-icons/fa";
+import { AiOutlinePlusCircle } from "react-icons/ai";
 import { usePopupContext } from "../../context/PopupContext";
 import "../../style/style.css";
 import { AiOutlinePlusCircle } from "react-icons/ai";

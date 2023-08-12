@@ -2,6 +2,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Dashboard from "./pages/Dashboard/AllEmployee/Dashboard";
 import ProtectedRoute from "./components/ProtectedRoutes";
+import Employee from "./pages/AllEmployee/Employee";
+import EmployeeProfile from "./pages/SingleEmployee/EmployeeProfile";
+import Project from "./pages/AllProject/Project";
+
+import Departments from "./pages/Departments/Departments";
+import Holidays from "./pages/AllHolidays/Holidays";
 import Employee from "./pages/Dashboard/AllEmployee/Employee";
 import EmployeeProfile from "./pages/Dashboard/SingleEmployee/EmployeeProfile";
 import Project from "./pages/Dashboard/AllProject/Project";
@@ -25,7 +31,7 @@ function App() {
           <Route index element={<Employee />} />
           <Route path="/dashboard/employee/:id" element={<EmployeeProfile />} />
           <Route path="/dashboard/project" element={<Project />}></Route>
-          <Route path="/dashboard/holidays" element={<TableData />} />
+          <Route path="/dashboard/holidays" element={<Holidays />} />
           <Route path="/dashboard/departments" element={<Departments />} />
           <Route path="/dashboard/task" element={<Task />} />
         </Route>
