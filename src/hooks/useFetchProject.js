@@ -5,8 +5,8 @@ import { useProjectContext } from "../context/ProjectContext";
 
 export const useFetchProject = () => {
   const [error, setError] = useState(null);
-  const { setProjects, setLoading } = useProjectContext();
-  const { isEdit } = usePopupContext();
+  const { projects, setProjects, setLoading } = useProjectContext();
+  const { EditPopup } = usePopupContext();
 
   const getProject = async (id) => {
     setLoading(true);
@@ -25,16 +25,21 @@ export const useFetchProject = () => {
     setLoading(true);
 
     let resp;
-
-    if (isEdit) {
-      resp = await customFetch.patch(`project/${isEdit}`, obj);
+    console.log(EditPopup);
+    if (EditPopup) {
+      resp = await customFetch.patch(`project/${EditPopup}`, obj);
     } else {
       resp = await customFetch.post(`/project/create`, obj);
     }
 
     if (!resp.data.error) {
+      if (EditPopup) {
+        const newArr = projects.filter((e) => e._id !== EditPopup);
+        setProjects(newArr);
+        console.log(newArr);
+      }
       console.log(resp.data);
-      setProjects((prev) => [...prev, resp.data]);
+      setProjects((prev) => [...prev, resp.data.data]);
       setLoading(false);
     } else {
       setError(true);

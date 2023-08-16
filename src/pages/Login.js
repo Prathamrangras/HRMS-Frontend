@@ -71,7 +71,10 @@ const Login = () => {
                     className="w-100 p-3 p-md-5 card border-0 bg-dark text-light"
                     style={{ maxWidth: "32rem" }}
                   >
-                    <form onSubmit={handlelogin} className="row g-1 p-3 p-md-4">
+                    <form
+                      onSubmit={handlelogin}
+                      className="row g-1 p-3 p-md-4 flex-column"
+                    >
                       <div className="col-12 text-center mb-1 mb-lg-5">
                         <h1>Sign in</h1>
                         <span>Free access to our dashboard.</span>

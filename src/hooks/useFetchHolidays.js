@@ -1,78 +1,60 @@
 import { useState } from "react";
-import customFetch from "../utils/customFetch"; 
-import { usePopupContext } from "../context/PopupContext";
-import { useHolidaysContext } from "../context/HolidaysContext";
+import customFetch from "../utils/customFetch";
+import { useHolidayContext } from "../context/HolidaysContext";
 
 export const useFetchHoliday = () => {
   const [error, setError] = useState(null);
-  const { setHolidays, setLoading } = useHolidaysContext();
-  const { Edit } = usePopupContext();
+  const [isDeleting, setIsDeleting] = useState(false);
+  const { setHoliday, setLoading } = useHolidayContext();
 
-  const getHoliday = async () => {
+  // create holidays
+  const createHoliday = async (obj) => {
     setLoading(true);
     try {
-      const resp = await customFetch.get(`/Holiday`);
-      console.log(resp.data.data)
+      const resp = await customFetch.post(`/holiday/create`, obj);
+      console.log(resp.data);
       if (!resp.data.error) {
-        setHolidays(resp.data.data);
+        setHoliday((prev) => {
+          console.log(prev);
+          return [...prev, resp.data];
+        });
       } else {
         setError(true);
       }
-    } catch (error) {
+    } catch (err) {
       setError(true);
     } finally {
       setLoading(false);
     }
   };
 
-  const addHoliday = async (obj) => {
+  //get all holidays
+  const getHolidays = async () => {
     setLoading(true);
-  
-    try {
-      let resp;
-      console.log(obj)
-      if (Edit) {
-        resp = await customFetch.patch(`Holiday/${Edit}`, obj);
-      } else {
-        resp = await customFetch.post(`/Holiday/create`, obj);
-      }
-  
-      if (!resp.data.error) {
-        console.log(resp); 
-        setHolidays((prev) => [...prev, resp.data]); 
-        return resp.data; 
-      } else {
-        setError(true);
-      }
-    } catch (error) {
+
+    const resp = await customFetch.get(`/holiday`);
+    if (!resp.data.error) {
+      setHoliday(resp.data.data);
+      setLoading(false);
+    } else {
       setError(true);
-    } finally {
       setLoading(false);
     }
   };
-  
+
+  //delete a holiday
 
   const deleteHoliday = async (id) => {
-    setLoading(true);
-
+    setIsDeleting(true);
+    setError(null);
     try {
-      console.log("hello");
-
-      const resp = await customFetch.delete(`/Holiday/${id}`);
-
-      if (!resp.data.error) {
-        setHolidays((prev) => [...prev, resp.data]);
-        return resp.data;
-      } else {
-        setError(true);
-      }
-      
+      await customFetch.delete(`/holiday/${id}`);
     } catch (error) {
-      setError(true);
+      setError(error);
     } finally {
-      setLoading(false);
+      setIsDeleting(false);
     }
   };
 
-  return { error, getHoliday, addHoliday, deleteHoliday };
+  return { error, getHolidays, createHoliday, deleteHoliday };
 };

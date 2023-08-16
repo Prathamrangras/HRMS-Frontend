@@ -1,15 +1,15 @@
 import React, { useCallback, useEffect, useState } from "react";
-import image from "../../assets/photo-1502989642968-94fbdc9eace4.jpeg";
+import image from "../../../assets/photo-1502989642968-94fbdc9eace4.jpeg";
 import { BsPhoneFill } from "react-icons/bs";
 import { FaBirthdayCake, FaAddressBook } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { useParams } from "react-router-dom";
-import Task from "../../components/SingleEmployeeComponents/Employee-profile-task";
-import "../../style/style.css";
-import Project from "../../components/SingleEmployeeComponents/Employee-profile-project";
-import { useFetchEmpployee } from "../../hooks/useFetchEmployee";
-import { useFetchTeam } from "../../hooks/useFetchTeam";
-import { useEmployeeContext } from "../../context/EmployeeContext";
+import Task from "../../../components/SingleEmployeeComponents/Employee-profile-task";
+import "../../../style/style.css";
+import Project from "../../../components/SingleEmployeeComponents/Employee-profile-project";
+import { useFetchEmpployee } from "../../../hooks/useFetchEmployee";
+import { useFetchTeam } from "../../../hooks/useFetchTeam";
+import { useEmployeeContext } from "../../../context/EmployeeContext";
 import { LuEdit } from "react-icons/lu";
 const EmployeeProfile = () => {
   const { currentEmployee, loading, team } = useEmployeeContext();
@@ -60,7 +60,10 @@ const EmployeeProfile = () => {
               {/* profile card */}
 
               <div className="row g-3">
-                <div className="col-xl-8 col-lg-12 col-md-12">
+                <div
+                  className="col-xl-8 col-lg-12 col-md-12"
+                  style={{ marginRight: "10rem" }}
+                >
                   <div className="card teacher-card mb-3">
                     <div className="card-body d-flex teacher-fulldeatil">
                       <div className="profile-teacher pe-xl-4 pe-md-2 pe-sm-4 pe-0 text-center w220 mx-sm-0 mx-auto">
@@ -240,9 +243,8 @@ const EmployeeProfile = () => {
                     </div>
                   </div>
                 </div>
-                <div className="col-xl-4 col-lg-12 col-md-12">
-                  <Task />
-                </div>
+
+                <Task />
               </div>
             </div>
           </div>

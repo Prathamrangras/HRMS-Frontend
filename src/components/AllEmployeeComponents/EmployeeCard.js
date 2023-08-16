@@ -3,6 +3,7 @@ import image from "../../assets/photo-1502989642968-94fbdc9eace4.jpeg";
 import { HiOutlineMail } from "react-icons/hi";
 import { FaBirthdayCake } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import "../../style/employeeCard.css";
 
 const EmployeeCard = ({ name, designationID, _id, email, dateOfBirth }) => {
   return (
@@ -38,15 +39,17 @@ const EmployeeCard = ({ name, designationID, _id, email, dateOfBirth }) => {
                 {<HiOutlineMail />} {email}
               </span>
             </div>
-            <a href="#" className="btn btn-dark btn-sm mt-1 me-2">
-              Add Task
-            </a>
-            <Link
-              to={`/dashboard/employee/${_id}`}
-              className="btn btn-dark btn-sm mt-1"
-            >
-              Profile
-            </Link>
+            <div className="d-flex flex-wrap align-items-center ct-btn-set justify-content-center">
+              <a href="#" className="btn btn-dark btn-sm mt-1 me-2">
+                Add Task
+              </a>
+              <Link
+                to={`/dashboard/employee/${_id}`}
+                className="btn btn-dark btn-sm mt-1"
+              >
+                Profile
+              </Link>
+            </div>
           </div>
         </div>
       </div>

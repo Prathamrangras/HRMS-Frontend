@@ -1,15 +1,20 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "./components/Login";
-import Dashboard from "./pages/AllEmployee/Dashboard";
+import Login from "./pages/Login";
+import Dashboard from "./pages/Dashboard/AllEmployee/Dashboard";
 import ProtectedRoute from "./components/ProtectedRoutes";
 import Employee from "./pages/AllEmployee/Employee";
 import EmployeeProfile from "./pages/SingleEmployee/EmployeeProfile";
 import Project from "./pages/AllProject/Project";
-import Holiday from './components/TableComponents/DataTable';
-import Departments from "./pages/Departments/Departments";
-import Client from "./pages/Allclient/client";
-import ClientProfile from "./pages/Singleclient/clientProfile";
 
+import Departments from "./pages/Departments/Departments";
+import Holidays from "./pages/AllHolidays/Holidays";
+import Employee from "./pages/Dashboard/AllEmployee/Employee";
+import EmployeeProfile from "./pages/Dashboard/SingleEmployee/EmployeeProfile";
+import Project from "./pages/Dashboard/AllProject/Project";
+import TableData from "./components/TableComponents/DataTable";
+import Departments from "./pages/Dashboard/Departments/Departments";
+import Task from "./pages/Dashboard/tasks/Task";
+import ChatPage from "./pages/chatpage/Chat";
 
 function App() {
   return (
@@ -28,11 +33,11 @@ function App() {
           <Route index element={<Client />} />
           <Route path="/dashboard/client/:id" element={<ClientProfile />} />
           <Route path="/dashboard/project" element={<Project />}></Route>
-          <Route path="/dashboard/holidays" element={<Holiday />} />
+          <Route path="/dashboard/holidays" element={<TableData />} />
           <Route path="/dashboard/departments" element={<Departments />} />
-
         </Route>
         <Route path="/login" element={<Login />} />
+        <Route path="/chatapp" element={<ChatPage />} />
       </Routes>
     </BrowserRouter>
   );

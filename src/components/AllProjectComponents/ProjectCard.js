@@ -9,21 +9,7 @@ import { AiOutlineClockCircle } from "react-icons/ai";
 import { useFetchProject } from "../../hooks/useFetchProject";
 import { useProjectContext } from "../../context/ProjectContext";
 import { usePopupContext } from "../../context/PopupContext";
-
-function daysLeftBetweenDates(date1, date2) {
-  // Convert date strings to Date objects
-  const startDate = new Date(date1);
-  const endDate = new Date(date2);
-
-  // Calculate the time difference in milliseconds
-  const timeDifferenceMs = endDate - startDate;
-
-  // Convert milliseconds to days
-  const daysLeft = timeDifferenceMs / (1000 * 60 * 60 * 24);
-
-  // Return the number of days left (you can use Math.ceil to round up to the nearest whole day)
-  return Math.ceil(daysLeft);
-}
+import { daysLeftBetweenDates } from "../../utils/config";
 
 const ProjectCard = ({
   _id,
@@ -48,7 +34,7 @@ const ProjectCard = ({
       <div className="tab-content mt-4">
         <div className="tab-pane fade show active" id="All-list">
           <div className="row g-3 gy-5 py-3 row-deck">
-            <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6 col-sm-6">
+            <div className="col-xxl-4 col-xl-4 col-lg-4  col-sm-6 col-md-6">
               <div className="card">
                 <div className="card-body">
                   <div className="d-flex align-items-center justify-content-between mt-5">

@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useCallback } from "react";
-import PageHeader from "../../components/PageHeader";
+import PageHeader from "../../../components/PageHeader";
 import DataTable from "react-data-table-component";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 
-import { useFetchDepartment } from "../../hooks/useFetchDepartment";
-import { useEmployeeContext } from "../../context/EmployeeContext";
-import { Departmentcolumns } from "../../utils/Columns/departmentColumn";
+import { useFetchDepartment } from "../../../hooks/useFetchDepartment";
+import { useEmployeeContext } from "../../../context/EmployeeContext";
+import { Departmentcolumns } from "../../../utils/Columns/departmentColumn";
 const Departments = () => {
   const { getDepartment } = useFetchDepartment();
   const { department, loading } = useEmployeeContext();

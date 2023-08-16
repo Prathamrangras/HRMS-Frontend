@@ -1,6 +1,13 @@
 import React from "react";
 
-const FormRow = ({ type, name, value, handleChange, labelText }) => {
+const FormRow = ({
+  type,
+  name,
+  value,
+  handleChange,
+  labelText,
+  placeholder,
+}) => {
   return (
     <div className="mb-3 flex-grow-1 ">
       <label
@@ -14,6 +21,7 @@ const FormRow = ({ type, name, value, handleChange, labelText }) => {
         value={value}
         id={name}
         name={name}
+        placeholder={placeholder}
         onChange={handleChange}
         className="form-control border-3"
       />

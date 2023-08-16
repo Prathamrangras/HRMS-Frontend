@@ -7,6 +7,28 @@ export const useFetchDepartment = () => {
 
   const { setDepartment, setLoading } = useEmployeeContext();
 
+  //create department
+  const createDepartment = async (obj) => {
+    setLoading(true);
+
+    const resp = await customFetch.post(`/department/create`, obj);
+
+    console.log(resp.data);
+    if (!resp.data.error) {
+      setDepartment((prev) => {
+        console.log(prev);
+
+        return [...prev, resp.data];
+      });
+
+      setLoading(false);
+    } else {
+      setError(true);
+      setLoading(false);
+    }
+  };
+
+  //get All departments
   const getDepartment = async (id) => {
     setLoading(true);
 
@@ -20,5 +42,6 @@ export const useFetchDepartment = () => {
       setLoading(false);
     }
   };
-  return { error, getDepartment };
+
+  return { error, getDepartment, createDepartment };
 };
