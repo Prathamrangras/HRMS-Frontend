@@ -7,6 +7,7 @@ import EmployeeContext from "./context/EmployeeContext";
 import PopupContext from "./context/PopupContext";
 import ProjectContext from "./context/ProjectContext";
 import HolidaysContext from "./context/HolidaysContext";
+import ClientContext from "./context/ClientContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -14,9 +15,11 @@ root.render(
     <EmployeeContext>
       <ProjectContext>
         <HolidaysContext>
+          <ClientContext>
         <PopupContext>
           <App />
         </PopupContext>
+        </ClientContext>
         </HolidaysContext>
       </ProjectContext>
     </EmployeeContext>

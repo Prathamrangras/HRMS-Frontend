@@ -6,7 +6,7 @@ import { useHolidaysContext } from "../context/HolidaysContext";
 export const useFetchHoliday = () => {
   const [error, setError] = useState(null);
   const { setHolidays, setLoading } = useHolidaysContext();
-  const { isEdit } = usePopupContext();
+  const { Edit } = usePopupContext();
 
   const getHoliday = async () => {
     setLoading(true);
@@ -31,8 +31,8 @@ export const useFetchHoliday = () => {
     try {
       let resp;
       console.log(obj)
-      if (isEdit) {
-        resp = await customFetch.patch(`Holiday/${isEdit}`, obj);
+      if (Edit) {
+        resp = await customFetch.patch(`Holiday/${Edit}`, obj);
       } else {
         resp = await customFetch.post(`/Holiday/create`, obj);
       }
