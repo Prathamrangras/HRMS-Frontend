@@ -1,10 +1,10 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, React } from "react";
 
 const ClientContext = createContext();
 
 const AppContext = ({ children }) => {
   const [Client, setClient] = useState([]);
-  const [currentClient, setCurrentclient] = useState(null);
+  const [currentClient, setcurrentClient] = useState(null);
   const [CompanyName, setCompanyName] = useState(null);
   const [loading, setLoading] = useState(false);
   const [UserName, setUserName] = useState([]);
@@ -22,7 +22,7 @@ const AppContext = ({ children }) => {
         setCompanyName,
         setUserName,
         setPassword,
-        setCurrentclient,
+        setcurrentClient,
         UserName,
         Password,
       }}

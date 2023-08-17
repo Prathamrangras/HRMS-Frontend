@@ -2,7 +2,6 @@ import React from "react";
 import { AiOutlinePlusCircle } from "react-icons/ai";
 import { usePopupContext } from "../../context/PopupContext";
 import "../../style/style.css";
-import { AiOutlinePlusCircle } from "react-icons/ai";
 const EmployeeHead = () => {
   const { openPopup } = usePopupContext();
 

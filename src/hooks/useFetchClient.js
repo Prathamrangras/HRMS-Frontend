@@ -4,7 +4,7 @@ import { useClientContext } from "../context/ClientContext";
 
 export const useFetchClient = () => {
   const [error, setError] = useState(null);
-  const { setClient, setCurrentClient, setLoading } = useClientContext();
+  const { setClient, setcurrentClient, setLoading } = useClientContext();
 
   const getClient = async (id) => {
     setLoading(true);
@@ -19,11 +19,11 @@ export const useFetchClient = () => {
     }
   };
 
-    const getSingleClient = async (id) => {
+    const getSingleclient = async (id) => {
       setLoading(true)
     const resp = await customFetch.get(`/Client/${id}`);
     if (!resp.data.error) {
-      setCurrentClient(resp.data.employee);
+      setcurrentClient(resp.data.employee);
       setLoading(false);
     } else {
       setError(true);
@@ -55,5 +55,5 @@ export const useFetchClient = () => {
     }
   };
 
-  return { error, getClient, getSingleClient, addclient,};
+  return { error, getClient, getSingleclient, addclient,};
 }

@@ -7,14 +7,15 @@ import { useFetchClient } from "../../hooks/useFetchClient";
 import { useAuthContext } from "../../context/AuthContext";
 
 const initialValue = {
+  _id: "",
   name: "",
+  designation:"",
   CompanyName: "",
-  ProfileImage: "",
+  Photo: "",
   UserName: "",
-  password: "",
   email: "",
   phone: "",
-  description: "",
+  
 };
 
 const Clients = () => {
@@ -56,6 +57,14 @@ const Clients = () => {
         }}
       >
         <div className="d-flex flex-row justify-content-center gap-3">
+        <FormRow
+            type={"text"}
+            name={"_id"}
+            value={values.id}
+            handleChange={handleChange}
+            labelText={"client id"}
+          />
+
           <FormRow
             type={"text"}
             name={"name"}
@@ -81,8 +90,8 @@ const Clients = () => {
         </div>
         <FormRow
            type={"image"}
-           name={"ProfileImage"}
-           value={values.ProfileImage}
+           name={"Photo"}
+           value={values.Photo}
            handleChange={handleChange}
            labelText={"client ProfileImage"}
            />

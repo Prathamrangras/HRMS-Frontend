@@ -1,14 +1,14 @@
 import React, { useEffect, useCallback } from "react";
-import { useClientContext } from "../../context/ClientContext";
-import { useFetchClient } from "../../hooks/useFetchClient";
-import { useFetchDesignation } from "../../hooks/useFetchDesignation";
-import { useFetchDepartment } from "../../hooks/useFetchDepartment";
-import { useAuthContext } from "../../context/AuthContext";
-import "../../style/style.css";
-import ClientHead  from "../../components/Allclientcomponents/clientHead";
-import  ClientCard  from "../../components/Allclientcomponents/clientCard";
-import { usePopupContext } from "../../context/PopupContext";
-import ClientsPopup from "../../components/Popups/Client";
+import { useClientContext } from "../../../context/ClientContext";
+import { useFetchClient } from "../../../hooks/useFetchClient";
+import { useFetchDesignation } from "../../../hooks/useFetchDesignation";
+import { useFetchDepartment } from "../../../hooks/useFetchDepartment";
+import { useAuthContext } from "../../../context/AuthContext";
+import "../../../style/style.css";
+import ClientHead  from "../../../components/Allclientcomponents/clientHead";
+import  ClientCard  from "../../../components/Allclientcomponents/clientCard";
+import { usePopupContext } from "../../../context/PopupContext";
+import ClientsPopup from "../../../components/Popups/Client";
 
 const Client = () => {
   const { error, getClient } = useFetchClient();

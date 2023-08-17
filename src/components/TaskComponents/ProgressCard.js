@@ -1,6 +1,6 @@
 import React from "react";
 
-const ProgressCard = ({ tasks }) => {
+const ProgressCard = (props) => {
   return (
     <div className="col-xxl-4 col-xl-4 col-lg-4 col-md-6">
       <div className="card">
@@ -8,7 +8,7 @@ const ProgressCard = ({ tasks }) => {
           <h6 className="mb-0 fw-bold ">Task Progress</h6>
         </div>
         <div className="card-body mem-list">
-          {tasks.map((e) => (
+          {props.tasks.map((e) => (
             <div className="progress-count mb-4">
               <div className="d-flex justify-content-between align-items-center mb-1">
                 <h6 className="mb-0 fw-bold d-flex align-items-center">
