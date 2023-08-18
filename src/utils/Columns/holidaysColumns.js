@@ -1,8 +1,8 @@
 import { LuEdit } from "react-icons/lu";
+import React from "react";
 import { RiDeleteBin6Line } from "react-icons/ri";
-import deleteHoliday from "../../hooks/useFetchHolidays";
 
-export const HolidaysColumns = [
+export const getHolidaysCol = (deleteHoliday, isDeleting, error) => [
   {
     name: "#",
     selector: (_, index) => index + 1,
@@ -28,8 +28,6 @@ export const HolidaysColumns = [
     selector: (holiday) => {},
     sortable: true,
     cell: (holiday) => {
-      const { deleteHoliday, isDeleting, error } = deleteHoliday();
-
       const handleDelete = async () => {
         await deleteHoliday(holiday._id);
       };

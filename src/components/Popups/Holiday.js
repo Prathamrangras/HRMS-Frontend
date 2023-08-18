@@ -1,6 +1,5 @@
 import React, { useCallback, useState } from "react";
 import FormRow from "../FormComponents/FormRow";
-import DatePicker from "react-datepicker";
 import { usePopupContext } from "../../context/PopupContext";
 import { useFetchHoliday } from "../../hooks/useFetchHolidays";
 

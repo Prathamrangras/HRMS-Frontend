@@ -1,6 +1,29 @@
-import React from "react";
+import React, { useCallback, useEffect } from "react";
+import Chatlist from "../../components/Chats/Chatlist";
+import { useFetchChats } from "../../hooks/useFetchChats";
+import { useState } from "react";
+import ChatHistory from "./ChatHistory";
+import { useChatContext } from "../../context/ChatsContext";
 
 const ChatScreen = () => {
+  const { chats, loading } = useChatContext();
+  const [selectedChat, setSelectedChat] = useState();
+  const { getChats } = useFetchChats();
+
+  const getChatsAsync = useCallback(async () => {
+    await getChats();
+  }, []);
+
+  useEffect(() => {
+    getChatsAsync();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  } // } else {
+  //   setSelectedChat(chats[0]);
+  // }
+
   return (
     <div className="col-12 d-flex">
       <div className="px-4 py-3 py-md-4 chat-min-w">
@@ -46,6 +69,7 @@ const ChatScreen = () => {
             Contact
           </a>
         </div>
+        <Chatlist chats={chats} />
       </div>
       <div className="card card-chat-body border-0 order-1 w-100 px-4 px-md-5 py-3 py-md-4">
         <div className="chat-header d-flex justify-content-between align-items-center border-bottom pb-3">
@@ -108,6 +132,17 @@ const ChatScreen = () => {
               </div>
             </div>
           </div>
+        </div>
+        <ChatHistory chatId={123} />
+        <div class="chat-message">
+          <textarea
+            type="text"
+            class="form-control"
+            placeholder="Enter text here..."
+          ></textarea>
+          <button class="btn btn-dark" type="button">
+            Send
+          </button>
         </div>
       </div>
     </div>
