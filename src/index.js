@@ -14,17 +14,19 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <AuthContext>
     <ChatContext>
-      <EmployeeContext>
-        <ProjectContext>
-          <ClientContext>
-            <LeaveContext>
-            <PopupContext>
-              <App />
-            </PopupContext>
-          </LeaveContext>
-          </ClientContext>
-        </ProjectContext>
-      </EmployeeContext>
+      <HolidaysContext>
+        <EmployeeContext>
+          <ProjectContext>
+            <ClientContext>
+              <LeaveContext>
+                <PopupContext>
+                  <App />
+                </PopupContext>
+              </LeaveContext>
+            </ClientContext>
+          </ProjectContext>
+        </EmployeeContext>
+      </HolidaysContext>
     </ChatContext>
   </AuthContext>
 );

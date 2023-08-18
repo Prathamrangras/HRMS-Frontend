@@ -9,7 +9,7 @@ export const useFetchClient = () => {
   const getClient = async (id) => {
     setLoading(true);
 
-    const resp = await customFetch.get(`/Client/getJr`);
+    const resp = await customFetch.get(`/client`);
     if (!resp.data.error) {
       setClient(resp.data);
       setLoading(false);
@@ -19,11 +19,13 @@ export const useFetchClient = () => {
     }
   };
 
-    const getSingleclient = async (id) => {
-      setLoading(true)
-    const resp = await customFetch.get(`/Client/${id}`);
+  const getSingleclient = async (id) => {
+    console.log("x");
+    setLoading(true);
+    const resp = await customFetch.get(`/client/${id}`);
+    console.log(resp.data);
     if (!resp.data.error) {
-      setcurrentClient(resp.data.employee);
+      setcurrentClient(resp.data.data);
       setLoading(false);
     } else {
       setError(true);
@@ -55,5 +57,5 @@ export const useFetchClient = () => {
     }
   };
 
-  return { error, getClient, getSingleclient, addclient,};
-}
+  return { error, getClient, getSingleclient, addclient };
+};

@@ -12,7 +12,7 @@ import { LuEdit } from "react-icons/lu";
 const ClientProfile = () => {
   const { currentClient, loading } = useClientContext();
   const { getSingleclient } = useFetchClient();
- // const { getTeam } = useFetchTeam();
+  // const { getTeam } = useFetchTeam();
 
   const params = useParams();
   const { id } = params;
@@ -21,14 +21,15 @@ const ClientProfile = () => {
     await getSingleclient(id);
   }, []);
 
- // const getTeamAsync = useCallback(async () => {
+  // const getTeamAsync = useCallback(async () => {
   //  await getTeam(id);
- // }, [getTeam, id]);
+  // }, [getTeam, id]);
 
   useEffect(() => {
+    console.log("x");
     getclient();
     // getTeamAsync();
-  }, [getclient]);
+  }, []);
 
   if (loading) {
     return <div>Loading ...</div>;

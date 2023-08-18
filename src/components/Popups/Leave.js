@@ -51,7 +51,7 @@ const Leave = () => {
           name={"leaveType"}
           value={values.leaveType}
           handleChange={handleChange}
-          list={leaveType}
+          list={["Casual Leave", "Medical Leave"]}
         />
         <div className="d-flex flex-row justify-content-center gap-3">
           <FormRow

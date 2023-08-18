@@ -4,7 +4,7 @@ import { useHolidayContext } from "../context/HolidaysContext";
 import { usePopupContext } from "../context/PopupContext";
 export const useFetchHoliday = () => {
   const [error, setError] = useState(null);
-  const { setHolidays, setLoading } = useHolidayContext();
+  const { setHoliday, setLoading } = useHolidayContext();
   const { isEdit } = usePopupContext();
 
   const getHolidays = async (id) => {
@@ -12,7 +12,7 @@ export const useFetchHoliday = () => {
 
     const resp = await customFetch.get(`/Holidays`);
     if (!resp.data.error) {
-      setHolidays(resp.data.data);
+      setHoliday(resp.data.data);
       setLoading(false);
     } else {
       setError(true);
@@ -33,7 +33,7 @@ export const useFetchHoliday = () => {
 
     if (!resp.data.error) {
       console.log(resp.data);
-      setHolidays((prev) => [...prev, resp.data]);
+      setHoliday((prev) => [...prev, resp.data]);
       setLoading(false);
     } else {
       setError(true);
@@ -50,7 +50,7 @@ export const useFetchHoliday = () => {
 
     if (!resp.data.error) {
       console.log(resp.data);
-      setHolidays((prev) => prev.filter((e) => e._id !== id));
+      setHoliday((prev) => prev.filter((e) => e._id !== id));
       setLoading(false);
     } else {
       setError(true);

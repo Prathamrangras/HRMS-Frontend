@@ -16,18 +16,10 @@ const EmployeeHead = () => {
               type="button"
               className="btn btn-dark btn-set-task w-sm-100 d-flex align-items-center"
             >
-<<<<<<< HEAD
-
-=======
->>>>>>> 7a1142120478c1950428dff99d2d965608704971
               <AiOutlinePlusCircle
                 style={{ fontSize: "1.3em", marginRight: "0.5em" }}
               />
               Add Employee
-<<<<<<< HEAD
-              
-=======
->>>>>>> 7a1142120478c1950428dff99d2d965608704971
             </button>
             <div className="dropdown">
               <button

@@ -8,7 +8,7 @@ import Employee from "./pages/Dashboard/AllEmployee/Employee";
 import EmployeeProfile from "./pages/Dashboard/SingleEmployee/EmployeeProfile";
 import Project from "./pages/Dashboard/AllProject/Project";
 import Departments from "./pages/Dashboard/Departments/Departments";
-import Holidays from "./pages/Dashboard/AllHolidays/Holidays";
+import Holidays from "./pages/AllHolidays/Holidays";
 //import TableData from "./components/TableComponents/DataTable";
 import Task from "./pages/Dashboard/tasks/Task";
 import ChatPage from "./pages/chatpage/Chat";
@@ -35,7 +35,7 @@ function App() {
           <Route path="/dashboard/holidays" element={<Holidays />} />
           <Route path="/dashboard/departments" element={<Departments />} />
           <Route path="/dashboard/leave" element={<LeaveTable />} />
-          <Route path="/dashboard/task" element={<Task />} 
+          <Route path="/dashboard/task" element={<Task />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/chatapp" element={<ChatPage />} />
