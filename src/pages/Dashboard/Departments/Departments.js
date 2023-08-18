@@ -13,6 +13,7 @@ const Departments = () => {
     await getDepartment();
   }, []);
 
+
   useEffect(() => {
     fetchDepartment();
     console.log(department);
