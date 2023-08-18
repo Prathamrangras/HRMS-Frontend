@@ -8,6 +8,7 @@ import Project from "./pages/AllProject/Project";
 
 import Departments from "./pages/Departments/Departments";
 import Holidays from "./pages/AllHolidays/Holidays";
+import LeaveTable from "./pages/AllLeaves/LeaveTable";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/dashboard/project" element={<Project />}></Route>
           <Route path="/dashboard/holidays" element={<Holidays />} />
           <Route path="/dashboard/departments" element={<Departments />} />
+          <Route path="/dashboard/leave" element={<LeaveTable />} />
         </Route>
         <Route path="/login" element={<Login />} />
       </Routes>

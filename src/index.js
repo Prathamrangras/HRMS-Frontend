@@ -7,15 +7,18 @@ import EmployeeContext from "./context/EmployeeContext";
 import PopupContext from "./context/PopupContext";
 import ProjectContext from "./context/ProjectContext";
 import HolidaysContext from "./context/HolidaysContext";
+import LeaveContext from "./context/LeaveContext";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <AuthContext>
     <EmployeeContext>
       <ProjectContext>
         <HolidaysContext>
-          <PopupContext>
-            <App />
-          </PopupContext>
+          <LeaveContext>
+            <PopupContext>
+              <App />
+            </PopupContext>
+          </LeaveContext>
         </HolidaysContext>
       </ProjectContext>
     </EmployeeContext>

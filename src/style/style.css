@@ -761,6 +761,8 @@ user agent stylesheet a:-webkit-any-link {
   background-color: #eee5ff !important;
 }
 
+/* employee card css */
+
 .card-body {
   flex: 1 1 auto;
   padding: 1rem 1rem;
