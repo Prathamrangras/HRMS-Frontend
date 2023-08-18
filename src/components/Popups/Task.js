@@ -3,7 +3,7 @@ import FormRow from "../FormComponents/FormRow";
 import FormRowSelect from "../FormComponents/FormRowSelect";
 import { usePopupContext } from "../../context/PopupContext";
 import { useEmployeeContext } from "../../context/EmployeeContext";
-import { useFetchProject } from "../../hooks/useFetchProject";
+import { useFetchTask } from "../../hooks/useFetchTasks";
 // import { useAuthContext } from "../../context/AuthContext";
 import { priorityList } from "../../utils/data";
 
@@ -22,7 +22,7 @@ const Task = () => {
   const [values, setValues] = useState(initialValue);
   const { closePopup, EditPopup } = usePopupContext();
   const { team, department } = useEmployeeContext();
-  const { addProject } = useFetchProject();
+  const { addTask } = useFetchTask();
   const { isEdit } = usePopupContext();
 
   // const designationList = designation.map((e) => e.name);
@@ -38,12 +38,12 @@ const Task = () => {
 
   const addProjectAsync = useCallback(async (obj) => {
     console.log(values);
-    await addProject(obj);
+    await addTask(obj);
   }, []);
 
   const EditProjectAsync = useCallback(async (obj) => {
     console.log(values);
-    await addProject(obj);
+    await addTask(obj);
   }, []);
 
   return (
@@ -64,7 +64,7 @@ const Task = () => {
           className="modal-body px-5"
           onSubmit={(e) => {
             e.preventDefault();
-            !isEdit ? addProjectAsync(values) : EditProjectAsync();
+            !isEdit ? addProjectAsync(values) : EditProjectAsync(values);
           }}
         >
           <FormRow

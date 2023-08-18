@@ -3,22 +3,25 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import AuthContext from "./context/AuthContext";
+import ChatContext from "./context/ChatsContext";
 import EmployeeContext from "./context/EmployeeContext";
 import PopupContext from "./context/PopupContext";
 import ProjectContext from "./context/ProjectContext";
 import HolidaysContext from "./context/HolidaysContext";
-import ClientContext  from "./context/ClientContext";
+import ClientContext from "./context/ClientContext";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <AuthContext>
-    <EmployeeContext>
-      <ProjectContext>
-        <ClientContext>
-        <PopupContext>
-          <App />
-        </PopupContext>
-        </ClientContext>
-      </ProjectContext>
-    </EmployeeContext>
+    <ChatContext>
+      <EmployeeContext>
+        <ProjectContext>
+          <ClientContext>
+            <PopupContext>
+              <App />
+            </PopupContext>
+          </ClientContext>
+        </ProjectContext>
+      </EmployeeContext>
+    </ChatContext>
   </AuthContext>
 );

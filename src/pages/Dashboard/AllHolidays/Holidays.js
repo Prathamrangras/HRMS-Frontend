@@ -1,16 +1,16 @@
 import React, { useCallback, useEffect } from "react";
-import PageHeader from "../../components/PageHeader";
+import PageHeader from "../../../components/PageHeader";
 import DataTable from "react-data-table-component";
-import { HolidaysColumns } from "../../utils/Columns/holidaysColumns";
+import { getHolidaysCol } from "../../../utils/Columns/holidaysColumns";
 import { AiOutlinePlusCircle } from "react-icons/ai";
-import { useFetchHoliday } from "../../hooks/useFetchHolidays";
-import { useHolidayContext } from "../../context/HolidaysContext";
-import { usePopupContext } from "../../context/PopupContext";
-import HolidayPopup from "../../components/Popups/Holiday";
+import { useFetchHoliday } from "../../../hooks/useFetchHolidays";
+import { useHolidayContext } from "../../../context/HolidaysContext";
+import { usePopupContext } from "../../../context/PopupContext";
+import HolidayPopup from "../../../components/Popups/Holiday";
 
 const Holidays = () => {
   const { openPopup, isPopup } = usePopupContext();
-  const { getHolidays } = useFetchHoliday();
+  const { getHolidays, deleteHoliday, isDeleting, error } = useFetchHoliday();
   const { holiday, loading } = useHolidayContext();
   const fetchHoliday = useCallback(async () => {
     await getHolidays();
@@ -64,7 +64,7 @@ const Holidays = () => {
           }}
         />
         <DataTable
-          columns={HolidaysColumns}
+          columns={getHolidaysCol(deleteHoliday, isDeleting, error)}
           data={holiday}
           className="table myDataTable table-hover align-middle mb-0 d-row
          nowrap dataTable no-footer dtr-inline"

@@ -1,11 +1,10 @@
 import { useState } from "react";
 import customFetch from "../utils/customFetch";
+import { useHolidayContext } from "../context/HolidaysContext";
 import { usePopupContext } from "../context/PopupContext";
-import { useHolidaysContext } from "../context/HolidaysContext";
-
 export const useFetchHoliday = () => {
   const [error, setError] = useState(null);
-  const { setHolidays, setLoading } = useHolidaysContext();
+  const { setHolidays, setLoading } = useHolidayContext();
   const { isEdit } = usePopupContext();
 
   const getHolidays = async (id) => {
