@@ -39,15 +39,17 @@ const EmployeeCard = ({ name, designationID, _id, email, dateOfBirth }) => {
                 {<HiOutlineMail />} {email}
               </span>
             </div>
-            <a href="#" className="btn btn-dark btn-sm mt-1 me-2">
-              Add Task
-            </a>
-            <Link
-              to={`/dashboard/employee/${_id}`}
-              className="btn btn-dark btn-sm mt-1"
-            >
-              Profile
-            </Link>
+            <div className="d-flex flex-wrap align-items-center ct-btn-set justify-content-center">
+              <a href="#" className="btn btn-dark btn-sm mt-1 me-2">
+                Add Task
+              </a>
+              <Link
+                to={`/dashboard/employee/${_id}`}
+                className="btn btn-dark btn-sm mt-1"
+              >
+                Profile
+              </Link>
+            </div>
           </div>
         </div>
       </div>

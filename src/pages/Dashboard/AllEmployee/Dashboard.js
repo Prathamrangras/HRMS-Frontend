@@ -1,17 +1,15 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import Sidebar from "../../components/Sidebar";
-import Navbar from "../../components/Navbar";
+import Sidebar from "../../../components/Sidebar";
+import Navbar from "../../../components/Navbar";
 
 const Dashboard = () => {
   return (
     <div className="row flex-nowrap text-center">
-      <div className="col-3 w-25">
-        <Sidebar />
-      </div>
-      <div style={{ width: "70%" }}>
+      <Sidebar />
+      <div className="main px-lg-4 px-md-4">
         <Navbar />
-        <div className="dashboard-page">
+        <div className="body d-flex py-lg-3 py-md-2">
           <Outlet />
         </div>
       </div>

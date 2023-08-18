@@ -1,14 +1,14 @@
 import React, { useEffect, useCallback } from "react";
-import { useEmployeeContext } from "../../context/EmployeeContext";
-import { useFetchEmpployee } from "../../hooks/useFetchEmployee";
-import { useFetchDesignation } from "../../hooks/useFetchDesignation";
-import { useFetchDepartment } from "../../hooks/useFetchDepartment";
-import { useAuthContext } from "../../context/AuthContext";
-import "../../style/style.css";
-import EmployeeHead from "../../components/AllEmployeeComponents/EmployeeHead";
-import EmployeeCard from "../../components/AllEmployeeComponents/EmployeeCard";
-import { usePopupContext } from "../../context/PopupContext";
-import EmployeePopup from "../../components/Popups/Employee";
+import { useEmployeeContext } from "../../../context/EmployeeContext";
+import { useFetchEmpployee } from "../../../hooks/useFetchEmployee";
+import { useFetchDesignation } from "../../../hooks/useFetchDesignation";
+import { useFetchDepartment } from "../../../hooks/useFetchDepartment";
+import { useAuthContext } from "../../../context/AuthContext";
+import "../../../style/style.css";
+import EmployeeHead from "../../../components/AllEmployeeComponents/EmployeeHead";
+import EmployeeCard from "../../../components/AllEmployeeComponents/EmployeeCard";
+import { usePopupContext } from "../../../context/PopupContext";
+import EmployeePopup from "../../../components/Popups/Employee";
 
 const Employee = () => {
   const { error, getEmployees } = useFetchEmpployee();
@@ -62,7 +62,7 @@ const Employee = () => {
               </>
             )}
             <EmployeeHead />
-            <div className="row g-3 row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-2 row-cols-xxl-2 row-deck py-1 pb-4">
+            <div className="row g-3 row-cols-1 row-cols-sm-1 row-cols-md-1 row-cols-lg-2 row-cols-xl-2 row-cols-xxl-2 row-deck py-1 pb-4 flex-wrap">
               {employee.map((e, i) => (
                 <EmployeeCard {...e} key={i} />
               ))}

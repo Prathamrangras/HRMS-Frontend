@@ -748,8 +748,8 @@ user agent stylesheet a:-webkit-any-link {
 
 .btn.btn-primary {
   background-color: #484c7f;
-  border-color: #484c7f;
-  color: white;
+  border-color: var(--primary-color);
+  color: var(--white-color);
 }
 
 /* .btn.btn-primary.active {
@@ -836,7 +836,7 @@ user agent stylesheet a:-webkit-any-link {
 
 .row {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .col-xl-5 {
@@ -1033,7 +1033,7 @@ user agent stylesheet a:-webkit-any-link {
 
 .col-md-12 {
   flex: 0 0 auto;
-  width: 50%;
+  width: 45%;
 }
 
 .col-xxl-4 {
@@ -1048,12 +1048,12 @@ user agent stylesheet a:-webkit-any-link {
 
 .col-lg-4 {
   flex: 0 0 auto;
-  width: 33.33333333%;
+  width: 74%;
 }
 
 .col-md-6 {
   flex: 0 0 auto;
-  width: 50%;
+  width: 74%;
 }
 
 .col-sm-6 {
@@ -2358,4 +2358,82 @@ body.rtl_mode
   bottom: 100%;
   margin-top: 0;
   margin-bottom: 0.125rem;
+}
+
+.chat-min-w {
+  min-width: 380px;
+}
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  color: var(--bs-nav-pills-link-active-color);
+  background-color: #484c7f !important;
+}
+.progress-0 {
+  width: 10%;
+  background-color: red;
+}
+.progress-1 {
+  width: 30%;
+  background-color: rgb(255, 247, 0);
+}
+.progress-2 {
+  width: 60%;
+  background-color: rgb(43, 255, 0);
+}
+.progress-3 {
+  width: 90%;
+  background-color: rgb(0, 0, 255);
+}
+.mem-list {
+  height: 220px;
+  overflow-y: auto;
+}
+.main {
+  -ms-overflow-style: none;
+  flex: 1 1;
+  height: 100vh;
+  order: 3;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+#mytask-layout {
+  display: flex;
+  flex-direction: column;
+  flex-direction: row;
+}
+.row-deck > .col,
+.row-deck > [class*="col-"] {
+  align-items: stretch;
+  display: flex;
+}
+#root {
+  overflow: hidden;
+}
+.taskboard .dd-handle {
+  background-color: #fff;
+  background-color: var(--card-color);
+  border-color: #f0f0f0;
+  border-color: var(--border-color);
+  border-radius: 0;
+  box-shadow: 0 2px 8px 0 rgba(99, 99, 99, 0.1);
+  color: #212529;
+  color: var(--text-color);
+  padding: 20px;
+  position: relative;
+  transition: all 0.4s ease-in-out;
+}
+
+.dd-handle {
+  background-color: #fff;
+  background-color: var(--card-color);
+  border-color: #f0f0f0;
+  border-color: var(--border-color);
+  border-radius: 0;
+  box-shadow: 0 2px 8px 0 rgba(99, 99, 99, 0.1);
+  color: #212529;
+  color: var(--text-color);
+  padding: 20px;
+  position: relative;
+  transition: all 0.4s ease-in-out;
 }
