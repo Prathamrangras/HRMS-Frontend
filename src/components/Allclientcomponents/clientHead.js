@@ -9,7 +9,7 @@ const ClientHead = () => {
     <div className="row align-items-center">
       <div className="border-0 mb-4 ">
         <div className="card-header no-bg bg-transparent d-flex align-items-center px-0 justify-content-between border-bottom flex-wrap">
-          <h3 className="fw-bold mb-0 py-3 pb-2">Employee</h3>
+          <h3 className="fw-bold mb-0 py-3 pb-2">Clients</h3>
           <div className="col-auto d-flex w-sm-100">
             <button
               onClick={() => openPopup()}

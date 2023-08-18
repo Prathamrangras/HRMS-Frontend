@@ -9,6 +9,7 @@ const AppContext = ({ children }) => {
   const [loading, setLoading] = useState(false);
   const [UserName, setUserName] = useState([]);
   const [Password, setPassword] = useState([]);
+  const [designation, setDesignation] = useState([]);
 
   return (
     <ClientContext.Provider
@@ -23,6 +24,7 @@ const AppContext = ({ children }) => {
         setUserName,
         setPassword,
         setcurrentClient,
+        designation,
         UserName,
         Password,
       }}

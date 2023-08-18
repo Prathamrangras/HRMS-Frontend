@@ -14,7 +14,7 @@ const initialValue = {
   Photo: "",
   UserName: "",
   email: "",
-  phone: "",
+  phoneNO: "",
   
 };
 
@@ -24,13 +24,27 @@ const Clients = () => {
   const { designation, department } = useClientContext();
   const { addClient } = useFetchClient();
    const designationList = designation.map((e) => e.name);
-   const departmentList = department.map((e) => e.name);
   const { user } = useAuthContext();
 
   const handleChange = (e) => {
     const name = e.target.name;
     const value = e.target.value;
     setValues({ ...values, [name]: value });
+  };
+  const handleChanges = (event) => {
+    const { name, value } = event.target;
+    setValues((prevValues) => ({
+      ...prevValues,
+      [name]: value,
+    }));
+  };
+
+  const handleImageChange = (event) => {
+    const selectedImage = event.target.files[0];
+    setValues((prevValues) => ({
+      ...prevValues,
+      profileImage: selectedImage,
+    }));
   };
 
   const addCli = useCallback(async (obj, id) => {
@@ -56,67 +70,79 @@ const Clients = () => {
           addCli(values, user._id);
         }}
       >
-        <div className="d-flex flex-row justify-content-center gap-3">
-        <FormRow
-            type={"text"}
-            name={"_id"}
-            value={values.id}
-            handleChange={handleChange}
-            labelText={"client id"}
-          />
+       <div>
+  <div className="d-flex flex-row justify-content-center gap-3">
+    <FormRow
+      type={"text"}
+      name={"name"}
+      value={values.name}
+      handleChange={handleChange}
+      labelText={"Client Name"}
+    />
+  </div>
+  <div className="d-flex flex-row justify-content-center gap-3">
+    <FormRow
+      type={"text"}
+      name={"Company"}
+      value={values.name}
+      handleChange={handleChange}
+      labelText={"Company"}
+    />
+  </div>
+  <div className="d-flex flex-row justify-content-center gap-3">
+    <div className="form-group">
+      <label htmlFor="profileImage" className="form-label">
+        Profile Image
+      </label>
+      <input
+        type="file"
+        id="profileImage"
+        name="profileImage"
+        onChange={(e) => handleImageChange(e)}
+        accept="image/*"
+        className="form-control"
+      />
+      {values.profileImage && (
+        <div className="image-preview">
+          <img src={URL.createObjectURL(values.profileImage)} alt="Profile" />
+        </div>
+         )}
+         </div>
+       </div>
+  <div className="d-flex flex-row justify-content-center gap-3">
+    <FormRow
+      type={"text"}
+      name={"username"}
+      value={values.UserName}
+      handleChange={handleChange}
+      labelText={"User Name"}
+    />
+    <FormRow
+      type={"password"}
+      name={"password"}
+      value={values.password}
+      handleChange={handleChange}
+      labelText={"Client Password"}
+    />
+  </div>
+  <div className="d-flex flex-row justify-content-center gap-3">
+    <FormRow
+      type={"email"}
+      name={"email"}
+      value={values.email}
+      handleChange={handleChange}
+      labelText={"Client Email"}
+    />
+    <FormRow
+      type={"number"}
+      name={"phoneNO"}
+      value={values.phone}
+      handleChange={handleChange}
+      labelText={"Client Phone Number"}
+    />
+  </div>
+</div>
 
-          <FormRow
-            type={"text"}
-            name={"name"}
-            value={values.name}
-            handleChange={handleChange}
-            labelText={"client Name"}
-          />
-          <div className="d-flex flex-row justify-content-center gap-3">
-          <FormRow
-            type={"text"}
-            name={"Companyname"}
-            value={values.name}
-            handleChange={handleChange}
-            labelText={"client Name"}
-            />
-          <FormRow
-            type={"number"}
-            name={"phone"}
-            value={values.phone}
-            handleChange={handleChange}
-            labelText={"client Phone Number"}
-          />
-        </div>
-        <FormRow
-           type={"image"}
-           name={"Photo"}
-           value={values.Photo}
-           handleChange={handleChange}
-           labelText={"client ProfileImage"}
-           />
-        <FormRow
-            type={"text"}
-            name={"username"}
-            value={values.UserName}
-            handleChange={handleChange}
-            labelText={"User Name"}
-            />
-        <FormRow
-          type={"email"}
-          name={"email"}
-          value={values.email}
-          handleChange={handleChange}
-          labelText={"client Email"}
-        />
-        <FormRow
-          type={"password"}
-          name={"password"}
-          value={values.password}
-          handleChange={handleChange}
-          labelText={"client Password"}
-        />
-        </div>
         <div className="d-flex flex-row justify-content-center gap-3">
           
         </div>
