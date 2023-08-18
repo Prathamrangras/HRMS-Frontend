@@ -1,4 +1,5 @@
 import { LuEdit } from "react-icons/lu";
+import React from "react";
 import { RiDeleteBin6Line } from "react-icons/ri";
 import deleteHoliday from "../../hooks/useFetchHolidays";
 
