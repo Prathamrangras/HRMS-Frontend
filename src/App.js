@@ -8,7 +8,7 @@ import Employee from "./pages/Dashboard/AllEmployee/Employee";
 import EmployeeProfile from "./pages/Dashboard/SingleEmployee/EmployeeProfile";
 import Project from "./pages/Dashboard/AllProject/Project";
 import Departments from "./pages/Dashboard/Departments/Departments";
-import Holidays from "./pages/AllHolidays/Holidays";
+import Holidays from "./pages/Dashboard/AllHolidays/Holidays";
 //import TableData from "./components/TableComponents/DataTable";
 import Task from "./pages/Dashboard/tasks/Task";
 import ChatPage from "./pages/chatpage/Chat";

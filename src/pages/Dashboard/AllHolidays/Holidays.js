@@ -1,12 +1,12 @@
 import React, { useCallback, useEffect } from "react";
-import PageHeader from "../../components/PageHeader";
+import PageHeader from "../../../components/PageHeader";
 import DataTable from "react-data-table-component";
-import { getHolidaysCol } from "../../utils/Columns/holidaysColumns";
+import { getHolidaysCol } from "../../../utils/Columns/holidaysColumns";
 import { AiOutlinePlusCircle } from "react-icons/ai";
-import { useFetchHoliday } from "../../hooks/useFetchHolidays";
-import { useHolidayContext } from "../../context/HolidaysContext";
-import { usePopupContext } from "../../context/PopupContext";
-import HolidayPopup from "../../components/Popups/Holiday";
+import { useFetchHoliday } from "../../../hooks/useFetchHolidays";
+import { useHolidayContext } from "../../../context/HolidaysContext";
+import { usePopupContext } from "../../../context/PopupContext";
+import HolidayPopup from "../../../components/Popups/Holiday";
 
 const Holidays = () => {
   const { openPopup, isPopup } = usePopupContext();

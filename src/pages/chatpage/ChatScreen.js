@@ -5,10 +5,10 @@ import { useState } from "react";
 import ChatHistory from "./ChatHistory";
 import { useChatContext } from "../../context/ChatsContext";
 
-const ChatScreen = () => {
-  const { chats, loading } = useChatContext();
-  const [selectedChat, setSelectedChat] = useState();
-  const { getChats } = useFetchChats();
+const ChatScreen = ({ socket }) => {
+  const { chats, loading, selectedChat } = useChatContext();
+  const { getChats, sendMessage } = useFetchChats();
+  const [typedMessage, setTypedMessage] = useState("");
 
   const getChatsAsync = useCallback(async () => {
     await getChats();
@@ -16,6 +16,7 @@ const ChatScreen = () => {
 
   useEffect(() => {
     getChatsAsync();
+    console.log(socket);
   }, []);
 
   if (loading) {
@@ -69,7 +70,7 @@ const ChatScreen = () => {
             Contact
           </a>
         </div>
-        <Chatlist chats={chats} />
+        <Chatlist chats={chats} socket={socket} />
       </div>
       <div className="card card-chat-body border-0 order-1 w-100 px-4 px-md-5 py-3 py-md-4">
         <div className="chat-header d-flex justify-content-between align-items-center border-bottom pb-3">
@@ -133,14 +134,20 @@ const ChatScreen = () => {
             </div>
           </div>
         </div>
-        <ChatHistory chatId={123} />
+        <ChatHistory socket={socket} />
         <div class="chat-message">
           <textarea
+            value={typedMessage}
+            onChange={(e) => setTypedMessage(e.target.value)}
             type="text"
             class="form-control"
             placeholder="Enter text here..."
           ></textarea>
-          <button class="btn btn-dark" type="button">
+          <button
+            onClick={() => sendMessage(typedMessage, selectedChat, socket)}
+            class="btn btn-dark"
+            type="button"
+          >
             Send
           </button>
         </div>

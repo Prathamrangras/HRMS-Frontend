@@ -1,16 +1,27 @@
 import React from "react";
 import { useAuthContext } from "../../context/AuthContext";
 import { getSender } from "../../utils/chatLogic";
+import { useChatContext } from "../../context/ChatsContext";
 
-const Chatlist = ({ chats }) => {
+const Chatlist = ({ chats, socket }) => {
   const { user } = useAuthContext();
+  const { selectedChat, setSelectedChat } = useChatContext();
+
+  const handleChatClick = (e) => {
+    console.log(socket);
+    setSelectedChat(e._id);
+    socket.emit("join-chat", e._id);
+  };
 
   return (
     <div className="tab-content border-top">
       <div class="tab-pane fade show active" id="tab-conatain1" role="tabpanel">
         <ul class="list-unstyled list-group list-group-custom list-group-flush mb-0">
           {chats.map((e) => (
-            <li class="list-group-item px-md-4 py-3 py-md-4 open">
+            <li
+              class="list-group-item px-md-4 py-3 py-md-4 open"
+              onClick={() => handleChatClick(e)}
+            >
               <a href="#!" class="d-flex">
                 <img
                   class="avatar rounded-circle"
@@ -19,9 +30,9 @@ const Chatlist = ({ chats }) => {
                 />
                 <div class="flex-fill ms-3 text-truncate">
                   <h6 class="d-flex justify-content-between mb-0">
-                    <span>{}</span>{" "}
+                    <span>{getSender(user, e.employees)}</span>{" "}
                     <small class="msg-time">
-                      {getSender(user, e.employees)}
+                      {new Date(e.updatedAt).toLocaleTimeString()}
                     </small>
                   </h6>
                   <span class="text-muted">{e.latestMessage?.content}</span>

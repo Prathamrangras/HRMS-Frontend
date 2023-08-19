@@ -5,6 +5,7 @@ const ChatContext = createContext();
 const AppContext = ({ children }) => {
   const [chats, setChats] = useState([]);
   const [selectedChat, setSelectedChat] = useState();
+  const [messages, setMessage] = useState([]);
   const [loading, setLoading] = useState(false);
 
   return (
@@ -16,6 +17,8 @@ const AppContext = ({ children }) => {
         setLoading,
         selectedChat,
         setSelectedChat,
+        messages,
+        setMessage,
       }}
     >
       {children}

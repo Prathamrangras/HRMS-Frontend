@@ -4,10 +4,10 @@ import { useChatContext } from "../context/ChatsContext";
 
 export const useFetchChats = () => {
   const [error, setError] = useState(null);
-  const { setLoading, setChats } = useChatContext();
+  const { setLoading, setChats, setMessage } = useChatContext();
 
   const getChats = async () => {
-    setLoading(false);
+    setLoading(true);
     const resp = await customFetch.get("/chat");
     if (!resp.data.error) {
       setChats(resp.data.data);
@@ -17,5 +17,16 @@ export const useFetchChats = () => {
       setLoading(false);
     }
   };
-  return { error, getChats };
+
+  const sendMessage = async (content, chatId, socket) => {
+    const resp = await customFetch.post(`message`, {
+      content: content,
+      chatId: chatId,
+    });
+    socket.emit("new-message", resp);
+    console.log(resp);
+    setMessage((prev) => [...prev, resp.data]);
+  };
+
+  return { error, getChats, sendMessage };
 };

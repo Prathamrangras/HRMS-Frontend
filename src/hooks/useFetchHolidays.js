@@ -10,7 +10,8 @@ export const useFetchHoliday = () => {
   const getHolidays = async (id) => {
     setLoading(true);
 
-    const resp = await customFetch.get(`/Holidays`);
+    const resp = await customFetch.get(`/holiday`);
+    console.log(resp);
     if (!resp.data.error) {
       setHoliday(resp.data.data);
       setLoading(false);
