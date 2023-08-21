@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { GoTriangleLeft } from "react-icons/go";
 import {
   FaHome,
   FaUser,
@@ -14,7 +15,6 @@ import { GoTriangleDown } from "react-icons/go";
 import { useAuthContext } from "../context/AuthContext";
 
 const Sidebar = () => {
-  const [isSidebarMini, setIsSidebarMini] = useState(false);
   const [darkLightMode, setDarkLightMode] = useState("light");
   const [updateRtl, setUpdateRtl] = useState(false);
   const { user } = useAuthContext();
@@ -428,9 +428,6 @@ const Sidebar = () => {
         {/* <button
           type="button"
           className="btn btn-link sidebar-mini-btn text-light"
-          onClick={() => {
-            setIsSidebarMini(!isSidebarMini);
-          }}
         >
           <span className="ms-2">
             <FaCaretSquareLeft class="icofont-bubble-right" />
