@@ -21,6 +21,7 @@ export const useFetchProject = () => {
     }
   };
 
+  //add project api call
   const addProject = async (obj) => {
     setLoading(true);
 

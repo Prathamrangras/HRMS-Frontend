@@ -2359,8 +2359,7 @@ body.rtl_mode
   margin-top: 0;
   margin-bottom: 0.125rem;
 }
-.Holidays
-.Holidays-block {
+.Holidays .Holidays-block {
   align-items: center;
   color: var(--text-color);
   display: flex;
