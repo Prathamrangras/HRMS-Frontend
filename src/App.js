@@ -11,8 +11,8 @@ import Departments from "./pages/Dashboard/Departments/Departments";
 import Holidays from "./pages/Dashboard/AllHolidays/Holidays";
 import Task from "./pages/Dashboard/tasks/Task";
 import ChatPage from "./pages/chatpage/Chat";
-import Client from "./pages/Dashboard/AllClient/Client";
-import ClientProfile from "./pages/Dashboard/SingleClient/ClientProfile";
+import Client from "./pages/Dashboard/Allclient/Client"
+import ClientProfile from "./pages/Dashboard/Singleclient/clientProfile";
 
 function App() {
   return (
@@ -27,14 +27,14 @@ function App() {
           }
         >
           <Route index element={<Employee />} />
-          <Route path="employee/:id" element={<EmployeeProfile />} />
-          <Route path="client" element={<Client />} />
-          <Route path="client/:id" element={<ClientProfile />} />
-          <Route path="project" element={<Project />} />
-          <Route path="holidays" element={<Holidays />} />
-          <Route path="departments" element={<Departments />} />
-          <Route path="leave" element={<LeaveTable />} />
-          <Route path="task" element={<Task />} />
+          <Route path="/dashboard/employee/:id" element={<EmployeeProfile />} />
+          <Route path="/dashboard/client" element={<Client />} />
+          <Route path="/dashboard/client/:id" element={<ClientProfile />} />
+          <Route path="/dashboard/project" element={<Project />} />
+          <Route path="/dashboard/holidays" element={<Holidays />} />
+          <Route path="/dashboard/departments" element={<Departments />} />
+          <Route path="/dashboard/leave" element={<LeaveTable />} />
+          <Route path="/dashboard/task" element={<Task />} />
         </Route>
         <Route path="/login" element={<Login />} />
         <Route path="/chatapp" element={<ChatPage />} />
