@@ -779,10 +779,6 @@ user agent stylesheet a:-webkit-any-link {
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
 }
-.row-deck > .col {
-  align-items: stretch;
-  display: flex;
-}
 
 .row-cols-xxl-2 > * {
   flex: 0 0 auto;
@@ -2484,9 +2480,7 @@ body.rtl_mode
 .div2 {
   grid-area: 1 / 2 / 2 / 3;
 }
-.teacher-info > * {
-  text-align: start;
-}
+
 .clientimage {
   height: 120px;
   min-width: 120px;

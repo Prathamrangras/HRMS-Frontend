@@ -1,0 +1,85 @@
+.row-deck > .col {
+  align-items: stretch;
+  display: flex;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  padding: 1rem;
+}
+
+.pe-md-2 {
+  padding-right: 0.5rem !important;
+}
+
+.pe-xl-4 {
+  padding-right: 1.5rem !important;
+}
+
+.pe-sm-4 {
+  padding-right: 1.5rem !important;
+}
+
+.pe-4 {
+  padding-right: 1.5rem !important;
+}
+
+.avatar.xl {
+  width: 120px;
+  min-width: 120px;
+  height: 120px;
+}
+
+.ps-xl-4 {
+  padding-left: 1.5rem !important;
+}
+
+.ps-md-3 {
+  padding-left: 1rem !important;
+}
+
+.ps-sm-4 {
+  padding-left: 1.5rem !important;
+}
+
+@media only screen and (max-width: 430px) {
+  .teacher-card .card-body {
+    flex-direction: column;
+  }
+  .teacher-card .card-body .teacher-info {
+    padding-left: 0px !important;
+    border-color: transparent !important;
+    text-align: center;
+  }
+  .teacher-card .card-body .profile-av {
+    padding-right: 0px !important;
+  }
+  .teacher-card .card-body .profile-av.w220 {
+    width: 100%;
+  }
+}
+
+.small-14 {
+  font-size: 14px;
+}
+
+.small-13 {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.btn {
+  font-size: 14px;
+}
