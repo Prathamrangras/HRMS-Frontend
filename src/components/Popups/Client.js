@@ -22,7 +22,7 @@ const Clients = () => {
   const [values, setValues] = useState(initialValue);
   const { closePopup } = usePopupContext();
   const { designation, department } = useClientContext();
-  const { addClient } = useFetchClient();
+  const { addclient } = useFetchClient();
    const designationList = designation.map((e) => e.name);
   const { user } = useAuthContext();
 
@@ -47,11 +47,10 @@ const Clients = () => {
     }));
   };
 
-  const addCli = useCallback(async (obj, id) => {
-    console.log(values);
-    await addClient(obj, id);
-  }, []);
-
+  const addCli = useCallback(async () => {
+    await addclient(values, user._id); 
+    closePopup(); 
+  }, [values, user._id, addclient, closePopup]);
   return (
     <div className="modal-content">
       <div className="modal-header">

@@ -6,21 +6,25 @@ export const useFetchClient = () => {
   const [error, setError] = useState(null);
   const { setClient, setcurrentClient, setLoading } = useClientContext();
 
-  const getClient = async (id) => {
+  const getAllClients = async () => {
     setLoading(true);
 
-    const resp = await customFetch.get(`/client`);
-    if (!resp.data.error) {
-      setClient(resp.data);
-      setLoading(false);
-    } else {
+    try {
+      const resp = await customFetch.get('/client'); 
+      if (!resp.data.error) {
+        setClient(resp.data.data);
+        setLoading(false);
+      } else {
+        setError(true);
+        setLoading(false);
+      }
+    } catch (error) {
       setError(true);
       setLoading(false);
     }
   };
 
   const getSingleclient = async (id) => {
-    console.log("x");
     setLoading(true);
     const resp = await customFetch.get(`/client/${id}`);
     console.log(resp.data);
@@ -37,7 +41,7 @@ export const useFetchClient = () => {
     setLoading(true);
 
     const resp = await customFetch.post(`/client/create`, {
-      client: { ...obj, CompanyName: [] },
+      client: { ...obj, id},
       CreatorId: id,
     });
 
@@ -45,10 +49,13 @@ export const useFetchClient = () => {
 
     if (!resp.data.error) {
       setClient((prev) => {
-        console.log(prev);
+        if (Array.isArray(prev)) {
+          return [...prev, resp.data.data];
+        } else {
+        
 
-        return [...prev, resp.data];
-      });
+        return [prev, resp.data.data];
+      }});
 
       setLoading(false);
     } else {
@@ -57,5 +64,5 @@ export const useFetchClient = () => {
     }
   };
 
-  return { error, getClient, getSingleclient, addclient };
+  return { error, getAllClients, getSingleclient, addclient };
 };
