@@ -16,7 +16,6 @@ const Chat = () => {
     socket = io(ENDPOINT);
     socket.emit("setup", user);
     socket.on("connected", () => {
-      console.log("asdasfd");
       setSocketConnected(true);
       setIsLoading(false); // Set loading to false when socket is connected
     });
