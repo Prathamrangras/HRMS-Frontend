@@ -4,8 +4,8 @@ import { useFetchClient } from "../../../hooks/useFetchClient";
 import { useFetchDesignation } from "../../../hooks/useFetchDesignation";
 import { useAuthContext } from "../../../context/AuthContext";
 import "../../../style/style.css";
-import ClientHead from "../../../components/AllClientComponents/ClientHead";
-import ClientCard from "../../../components/AllClientComponents/ClientCard";
+import ClientHead from "../../../components/Allclientcomponents/clientHead";
+import ClientCard from "../../../components/Allclientcomponents/clientCard";
 import { usePopupContext } from "../../../context/PopupContext";
 import ClientsPopup from "../../../components/Popups/Client";
 
@@ -21,8 +21,8 @@ const Client = () => {
   }, []);
 
   useEffect(() => {
-    getAllClients(); 
-    console.log(Client)
+    getAllClients();
+    console.log(Client);
     getDesig();
   }, []);
 

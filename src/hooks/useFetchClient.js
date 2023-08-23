@@ -10,7 +10,7 @@ export const useFetchClient = () => {
     setLoading(true);
 
     try {
-      const resp = await customFetch.get('/client'); 
+      const resp = await customFetch.get("/client");
       if (!resp.data.error) {
         setClient(resp.data.data);
         setLoading(false);
@@ -39,9 +39,9 @@ export const useFetchClient = () => {
 
   const addclient = async (obj, id) => {
     setLoading(true);
-
+    console.log(obj);
     const resp = await customFetch.post(`/client/create`, {
-      client: { ...obj, id},
+      client: { ...obj, id },
       CreatorId: id,
     });
 
@@ -52,10 +52,9 @@ export const useFetchClient = () => {
         if (Array.isArray(prev)) {
           return [...prev, resp.data.data];
         } else {
-        
-
-        return [prev, resp.data.data];
-      }});
+          return [prev, resp.data.data];
+        }
+      });
 
       setLoading(false);
     } else {

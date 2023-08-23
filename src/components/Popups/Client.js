@@ -9,13 +9,12 @@ import { useAuthContext } from "../../context/AuthContext";
 const initialValue = {
   _id: "",
   name: "",
-  designation:"",
+  designation: "",
   CompanyName: "",
   Photo: "",
   UserName: "",
   email: "",
   phoneNO: "",
-  
 };
 
 const Clients = () => {
@@ -23,7 +22,7 @@ const Clients = () => {
   const { closePopup } = usePopupContext();
   const { designation, department } = useClientContext();
   const { addclient } = useFetchClient();
-   const designationList = designation.map((e) => e.name);
+  const designationList = designation.map((e) => e.name);
   const { user } = useAuthContext();
 
   const handleChange = (e) => {
@@ -48,9 +47,10 @@ const Clients = () => {
   };
 
   const addCli = useCallback(async () => {
-    await addclient(values, user._id); 
-    closePopup(); 
+    await addclient(values, user._id);
+    closePopup();
   }, [values, user._id, addclient, closePopup]);
+
   return (
     <div className="modal-content">
       <div className="modal-header">
@@ -66,85 +66,87 @@ const Clients = () => {
         className="modal-body"
         onSubmit={(e) => {
           e.preventDefault();
+          console.log(values);
           addCli(values, user._id);
         }}
       >
-       <div>
-  <div className="d-flex flex-row justify-content-center gap-3">
-    <FormRow
-      type={"text"}
-      name={"name"}
-      value={values.name}
-      handleChange={handleChange}
-      labelText={"Client Name"}
-    />
-  </div>
-  <div className="d-flex flex-row justify-content-center gap-3">
-    <FormRow
-      type={"text"}
-      name={"Company"}
-      value={values.name}
-      handleChange={handleChange}
-      labelText={"Company"}
-    />
-  </div>
-  <div className="d-flex flex-row justify-content-center gap-3">
-    <div className="form-group">
-      <label htmlFor="profileImage" className="form-label">
-        Profile Image
-      </label>
-      <input
-        type="file"
-        id="profileImage"
-        name="profileImage"
-        onChange={(e) => handleImageChange(e)}
-        accept="image/*"
-        className="form-control"
-      />
-      {values.profileImage && (
-        <div className="image-preview">
-          <img src={URL.createObjectURL(values.profileImage)} alt="Profile" />
+        <div>
+          <div className="d-flex flex-row justify-content-center gap-3">
+            <FormRow
+              type={"text"}
+              name={"name"}
+              value={values.name}
+              handleChange={handleChange}
+              labelText={"Client Name"}
+            />
+          </div>
+          <div className="d-flex flex-row justify-content-center gap-3">
+            <FormRow
+              type={"text"}
+              name={"Company"}
+              value={values.name}
+              handleChange={handleChange}
+              labelText={"Company"}
+            />
+          </div>
+          <div className="d-flex flex-row justify-content-center gap-3">
+            <div className="form-group">
+              <label htmlFor="profileImage" className="form-label">
+                Profile Image
+              </label>
+              <input
+                type="file"
+                id="profileImage"
+                name="profileImage"
+                onChange={(e) => handleImageChange(e)}
+                accept="image/*"
+                className="form-control"
+              />
+              {values.profileImage && (
+                <div className="image-preview">
+                  <img
+                    src={URL.createObjectURL(values.profileImage)}
+                    alt="Profile"
+                  />
+                </div>
+              )}
+            </div>
+          </div>
+          <div className="d-flex flex-row justify-content-center gap-3">
+            <FormRow
+              type={"text"}
+              name={"username"}
+              value={values.UserName}
+              handleChange={handleChange}
+              labelText={"User Name"}
+            />
+            <FormRow
+              type={"password"}
+              name={"password"}
+              value={values.password}
+              handleChange={handleChange}
+              labelText={"Client Password"}
+            />
+          </div>
+          <div className="d-flex flex-row justify-content-center gap-3">
+            <FormRow
+              type={"email"}
+              name={"email"}
+              value={values.email}
+              handleChange={handleChange}
+              labelText={"Client Email"}
+            />
+            <FormRow
+              type={"number"}
+              name={"phoneNO"}
+              value={values.phone}
+              handleChange={handleChange}
+              labelText={"Client Phone Number"}
+            />
+          </div>
         </div>
-         )}
-         </div>
-       </div>
-  <div className="d-flex flex-row justify-content-center gap-3">
-    <FormRow
-      type={"text"}
-      name={"username"}
-      value={values.UserName}
-      handleChange={handleChange}
-      labelText={"User Name"}
-    />
-    <FormRow
-      type={"password"}
-      name={"password"}
-      value={values.password}
-      handleChange={handleChange}
-      labelText={"Client Password"}
-    />
-  </div>
-  <div className="d-flex flex-row justify-content-center gap-3">
-    <FormRow
-      type={"email"}
-      name={"email"}
-      value={values.email}
-      handleChange={handleChange}
-      labelText={"Client Email"}
-    />
-    <FormRow
-      type={"number"}
-      name={"phoneNO"}
-      value={values.phone}
-      handleChange={handleChange}
-      labelText={"Client Phone Number"}
-    />
-  </div>
-</div>
 
-        <div className="d-flex flex-row justify-content-center gap-3">
-          
-        </div>
+        <div className="d-flex flex-row justify-content-center gap-3"></div>
         <div className="modal-footer">
           <button type="submit" className="btn btn-secondary">
             Done
